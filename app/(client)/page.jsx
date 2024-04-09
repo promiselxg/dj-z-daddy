@@ -165,12 +165,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section
+      {/* <section
         id="gallery"
         className="md:h-[500px] w-full md:w-1/2 bg-[red] text-white"
       >
         <Video src={getStarted} className="h-fit " />
-      </section>
+      </section> */}
     </>
   );
 }
