@@ -8,7 +8,7 @@ import { FiAlignRight, FiX } from "react-icons/fi";
 
 const Header = () => {
   const [isFixed, setIsFixed] = useState(false);
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       const scrollHeight = window.scrollY;
