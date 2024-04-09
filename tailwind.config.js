@@ -74,6 +74,7 @@ module.exports = {
       backgroundImage: {
         "hero-bg": "url('/image/guy.jpg')",
         "playlist-bg": "url('/image/music-bg.jpg')",
+        "playlist-lady-bg": "url('/image/lady.jpg')",
       },
     },
   },

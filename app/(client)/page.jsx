@@ -1,11 +1,16 @@
 import Header from "./_components/Header";
-import { barlow, montserrat } from "@/lib/fonts";
+import { barlow } from "@/lib/fonts";
 import Link from "next/link";
 
 import Image from "next/image";
 import { Card, ServicesCard } from "./_components/Card";
-import { FiPlay } from "react-icons/fi";
+import Music from "./_components/Music";
+import { FiFacebook } from "react-icons/fi";
+import { FaXTwitter } from "react-icons/fa6";
+import { SlSocialSpotify } from "react-icons/sl";
 import { cn } from "@/lib/utils";
+import Video from "next-video";
+import getStarted from "/videos/get-started.mp4";
 
 export default function Home() {
   return (
@@ -131,33 +136,41 @@ export default function Home() {
         </div>
       </section>
       <section
-        id=""
-        className="flex items-center bg-[#000] text-white gap-10 justify-between  flex-col md:flex-row"
+        id="discography"
+        className="w-full bg-playlist-lady-bg bg-center bg-no-repeat bg-cover md:h-[500px]"
       >
-        <div className="bg-playlist-bg w-full md:w-[250px] bg-cover relative justify-center flex items-center h-[200px] md:h-[150px]">
-          <div className="flex justify-center items-center bg-white w-[100px] h-[100px] rounded-full">
-            <FiPlay className="text-[30px] text-[rgba(0,0,0,0.8)]" />
+        <div className="w-full mx-auto p-5 md:p-20 flex justify-between gap-8 ">
+          <div className="w-full flex justify-between items-center flex-col md:flex-row">
+            <div className="flex  w-full md:w-1/2 gap-6 flex-col">
+              <div className="flex w-[80%] md:w-full items-center gap-5">
+                <div className="w-[20%] md:w-[20%] border border-[--primary-text-color]"></div>
+                <div className="w-full">
+                  <h1
+                    className={`${barlow.className} font-[300] text-[30px] md:text-[40px] leading-[1.1] text-white `}
+                  >
+                    <span className="text-white uppercase">My Playlist</span>
+                  </h1>
+                </div>
+              </div>
+              <div className="w-full gap-y-3 flex flex-col mt-5">
+                <Music />
+              </div>
+              <div className="flex items-center text-[--primary-text-color] mb-5 gap-2">
+                <h1 className={cn(`${barlow.className} font-[600] `)}>
+                  Spotify Music{" "}
+                </h1>
+                <SlSocialSpotify className="h-[30px] w-[30px]" />
+              </div>
+            </div>
           </div>
         </div>
-        <div
-          className={cn(
-            `${montserrat.className} font-[600] uppercase text-[38px] text-center flex px-5 md:px-0`
-          )}
-        >
-          <h1>DJ Z-Daddy Music Playlist.</h1>
-        </div>
-        <div className="mr-10">
-          <Link
-            href="/"
-            className="border border-[--primary-text-color] py-4 px-12 uppercase text-white hover:text-[#e97688] transition-all delay-75 hover:border-[#e97688]"
-          >
-            Listen
-          </Link>
-        </div>
       </section>
-      {/* <section id="gallery" className="h-screen w-full bg-[#000] text-white">
-        ok
-      </section> */}
+      <section
+        id="gallery"
+        className="md:h-[500px] w-full md:w-1/2 bg-[red] text-white"
+      >
+        <Video src={getStarted} className="h-fit " />
+      </section>
     </>
   );
 }

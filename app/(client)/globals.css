@@ -89,7 +89,26 @@
   line-height: 1.5;
   letter-spacing: 0px;
 }
+audio::-webkit-media-controls-panel {
+  background-color: #333;
+  color: #fff !important;
 
+  /* Add more styles as needed */
+}
+.rhap_container {
+  background-color: var(--primary-bg) !important;
+  padding: 8px !important;
+  border-radius: 5px !important;
+}
+.rhap_current-time {
+  color: var(--primary-text-color) !important;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px !important;
+  font-weight: 600;
+}
+.rhap_additional-controls {
+  display: none !important;
+}
 .active {
   border-bottom-color: #c22ef7;
 }
