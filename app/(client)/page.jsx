@@ -10,7 +10,6 @@ import { FaXTwitter } from "react-icons/fa6";
 import { SlSocialSpotify } from "react-icons/sl";
 import { cn } from "@/lib/utils";
 import Video from "next-video";
-import getStarted from "/videos/video2.mp4";
 
 export default function Home() {
   return (
