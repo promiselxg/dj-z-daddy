@@ -169,7 +169,7 @@ export default function Home() {
         className="md:h-[500px] w-full md:w-1/2 bg-[red] text-white"
       >
         <Video
-          src="https://gd802ursuid4dg1c.public.blob.vercel-storage.com/videos/video2-7NbPrmRCW1HHuN9xykAVKFMYUbtwOw.mp4"
+          src="https://res.cloudinary.com/promiselxg/video/upload/v1685933230/appwrite/sendSMS_hb7ble.mp4"
           className="h-fit "
         />
       </section>
