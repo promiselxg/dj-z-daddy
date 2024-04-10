@@ -10,7 +10,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { SlSocialSpotify } from "react-icons/sl";
 import { cn } from "@/lib/utils";
 import Video from "next-video";
-import getStarted from "/videos/get-started.mp4";
+import getStarted from "/videos/video2.mp4";
 
 export default function Home() {
   return (
@@ -165,12 +165,15 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* <section
+      <section
         id="gallery"
         className="md:h-[500px] w-full md:w-1/2 bg-[red] text-white"
       >
-        <Video src={getStarted} className="h-fit " />
-      </section> */}
+        <Video
+          src="https://gd802ursuid4dg1c.public.blob.vercel-storage.com/videos/video2-7NbPrmRCW1HHuN9xykAVKFMYUbtwOw.mp4"
+          className="h-fit "
+        />
+      </section>
     </>
   );
 }
