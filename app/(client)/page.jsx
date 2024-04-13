@@ -166,12 +166,30 @@ export default function Home() {
       </section>
       <section
         id="gallery"
-        className="md:h-[500px] w-full md:w-1/2 bg-[red] text-white"
+        className="md:h-screen w-full md:w-full  text-white p-10 bg-[--primary-bg]"
       >
-        <Video
-          src="https://res.cloudinary.com/promiselxg/video/upload/v1685933230/appwrite/sendSMS_hb7ble.mp4"
-          className="h-fit "
-        />
+        <div className="flex w-[80%] md:w-full items-center gap-5">
+          <div className="w-[20%] md:w-[20%] border border-[--primary-text-color]"></div>
+          <div className="w-full">
+            <h1
+              className={`${barlow.className} font-[300] text-[30px] md:text-[40px] leading-[1.1] text-white `}
+            >
+              <span className="text-white uppercase">Discography</span>
+            </h1>
+          </div>
+        </div>
+        <div className="my-10">
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
+            <Video
+              src="https://gd802ursuid4dg1c.public.blob.vercel-storage.com/videos/video2-7NbPrmRCW1HHuN9xykAVKFMYUbtwOw.mp4"
+              className="md:h-[500px] "
+            />
+            <Video
+              src="https://gd802ursuid4dg1c.public.blob.vercel-storage.com/videos/video2-7NbPrmRCW1HHuN9xykAVKFMYUbtwOw.mp4"
+              className="md:h-[500px]"
+            />
+          </div>
+        </div>
       </section>
     </>
   );
