@@ -8,7 +8,8 @@ const AudioModal = () => {
 
   const handleSubmit = async (url) => {
     const formData = {
-      audioUrl: url,
+      mediaUrl: url,
+      mediaType: "audio",
     };
     try {
       const response = await axios.post("/api/audioUpload", formData);
@@ -40,8 +41,12 @@ const AudioModal = () => {
           handleSubmit(result?.info?.secure_url);
         }}
       >
-        {({ open }) => {
-          return <button onClick={() => open()}>Upload an Image</button>;
+        {({ open, isLoading }) => {
+          return (
+            !isLoading && (
+              <button onClick={() => open()}>Upload an Audio</button>
+            )
+          );
         }}
       </CldUploadWidget>
     </>

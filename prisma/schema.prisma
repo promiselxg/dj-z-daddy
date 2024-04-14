@@ -55,21 +55,10 @@ model VerificationRequest {
 
   @@unique([identifier, token])
 }
-model gallery {
+model mediaFile {
   id            String   @id @default(cuid()) @map("_id")
   createdAt     DateTime @default(now())
   description   String?
-  imageUrl      String
-}
-model video {
-  id            String   @id @default(cuid()) @map("_id")
-  createdAt     DateTime @default(now())
-  description   String?
-  videoUrl      String
-}
-model audio {
-  id            String   @id @default(cuid()) @map("_id")
-  createdAt     DateTime @default(now())
-  description   String?
-  audioUrl      String
+  mediaUrl      String
+  mediaType     String?
 }

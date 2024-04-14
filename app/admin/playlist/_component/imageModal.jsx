@@ -46,7 +46,7 @@ const FormSchema = z.object({
 
 const ImageModal = () => {
   const { toast } = useToast();
-  const [imageUrl, setImageUrl] = useState("");
+  const [mediaUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
 
   const form = useForm({
@@ -56,8 +56,9 @@ const ImageModal = () => {
   async function onSubmit({ description }) {
     setLoading(true);
     const formData = {
-      imageUrl,
+      mediaUrl,
       description,
+      mediaType: "image",
     };
     try {
       const resp = await axios.post("/api/imageUpload", formData);
@@ -165,10 +166,10 @@ const ImageModal = () => {
                 <div className="flex flex-col gap-y-1">
                   <FormLabel>File Upload.</FormLabel>
                   <div className="flex items-center gap-3 mt-2">
-                    {imageUrl ? (
+                    {mediaUrl ? (
                       <>
                         <Image
-                          src={imageUrl}
+                          src={mediaUrl}
                           width={100}
                           height={50}
                           alt="image"
@@ -176,7 +177,7 @@ const ImageModal = () => {
                         />
                         <FiX
                           className="text-[30px] text-white bg-red-700 rounded-full p-2 cursor-pointer hover:opacity-[0.6] transition-all delay-75"
-                          onClick={() => handleRemoveItem(`${imageUrl}`)}
+                          onClick={() => handleRemoveItem(`${mediaUrl}`)}
                         />
                       </>
                     ) : (
