@@ -2,11 +2,12 @@ import Header from "./_components/Header";
 import { barlow } from "@/lib/fonts";
 import Link from "next/link";
 import Image from "next/image";
-import { Card, ServicesCard } from "./_components/Card";
+import { ServicesCard } from "./_components/Card";
 import Music from "./_components/Music";
 import { SlSocialSpotify } from "react-icons/sl";
 import { cn } from "@/lib/utils";
 import Discography from "./_components/Discography";
+import Events from "./_components/Events";
 
 export default function Home() {
   return (
@@ -79,22 +80,7 @@ export default function Home() {
           </div>
           <div className="w-full flex">
             <div className="w-full gap-6 grid md:grid-cols-3 grid-cols-1">
-              <Card
-                date="april, 2024"
-                title="found festival 2024"
-                description="The event has been turning the park into a sun-kissed musical paradise for the past three years"
-              />
-              <Card
-                date="march, 2024"
-                title="AZKENA ROCK FESTIVAL 2024
-                "
-                description="This is a two-day extravaganza in the north of Spain. It encompasses every niche of the genre, including everything from rock to pop and rap music."
-              />
-              <Card
-                date="january, 2024"
-                title="MAKE MUSIC PASADENA"
-                description="The all-ages summer music festival manages to squeeze more than 150 concerts into a single day."
-              />
+              <Events />
             </div>
           </div>
         </div>

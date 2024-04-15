@@ -3,7 +3,6 @@ import { montserrat } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { DataTable } from "../_components/table/data-table";
 import { columns } from "../_components/table/columns";
-import Modal from "./_component/modal";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -26,11 +25,8 @@ const Home = () => {
               `${montserrat.className} font-[600] text-[20px] uppercase`
             )}
           >
-            Media Library
+            Dashboard
           </h1>
-          <div className="flex gap-3">
-            <Modal />
-          </div>
         </div>
         <DataTable columns={columns} data={data} />
       </div>

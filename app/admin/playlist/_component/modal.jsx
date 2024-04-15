@@ -1,6 +1,7 @@
 "use client";
 
 import AudioModal from "./audioModal";
+import EventModal from "./eventModal";
 import ImageModal from "./imageModal";
 import VideoModal from "./videoModal";
 
@@ -10,6 +11,7 @@ const Modal = () => {
       <ImageModal />
       <AudioModal />
       <VideoModal />
+      <EventModal />
     </>
   );
 };

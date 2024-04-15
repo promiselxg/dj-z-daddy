@@ -5,7 +5,6 @@ import { NextResponse } from "next/server";
 export const GET = async (request) => {
   let query;
   let slug = request?.url?.split("?")[1]?.split("=")[1];
-  console.log(slug);
   if (!slug) {
     query = {};
   } else {
@@ -13,6 +12,7 @@ export const GET = async (request) => {
       where: {
         mediaType: slug,
       },
+      take: 4,
     };
   }
   try {

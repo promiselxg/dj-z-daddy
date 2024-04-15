@@ -55,6 +55,7 @@ model VerificationRequest {
 
   @@unique([identifier, token])
 }
+
 model mediaFile {
   id            String   @id @default(cuid()) @map("_id")
   createdAt     DateTime @default(now())
@@ -62,4 +63,12 @@ model mediaFile {
   mediaUrl      String
   mediaType     String?
   publicId      String?
+}
+
+model event {
+  id            String   @id @default(cuid()) @map("_id")
+  eventDate     String
+  description   String?
+  mediaUrl      String
+  title         String
 }

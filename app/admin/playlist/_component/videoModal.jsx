@@ -49,9 +49,9 @@ const VideoModal = () => {
             !isLoading && (
               <button
                 onClick={() => open()}
-                className="flex items-center gap-3 py-2.5 px-5 me-2 mb-2 text-sm font-medium focus:outline-none rounded-lg border border-gray-200  text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br"
+                className="flex items-center gap-2 hover:text-[--admin-primary-bg] transition-all delay-75 hover:bg-[--primary-bg] px-5 py-3 w-full hover:border-l-2 hover:border-l-[--admin-primary-bg] border-l-2 border-l-transparent"
               >
-                <Play />
+                <Play size={20} />
                 Upload a Video
               </button>
             )

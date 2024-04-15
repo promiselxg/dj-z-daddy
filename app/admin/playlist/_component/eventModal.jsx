@@ -16,13 +16,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { barlow } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
@@ -35,18 +28,27 @@ import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
 import Image from "next/image";
 import { ImageUp } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { format } from "date-fns";
+import { Calendar as CalendarIcon } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 const FormSchema = z.object({
-  media_type: z.string({
-    required_error: "Please select an email to display.",
+  title: z.string({
+    required_error: "Please enter an Event Title.",
   }),
-  description: z
-    .union([z.string()])
-    .optional()
-    .transform((e) => (e === "" ? undefined : e)),
+  description: z.string({
+    required_error: "Please enter a Title.",
+  }),
 });
 
-const ImageModal = () => {
+const EventModal = () => {
+  const [date, setDate] = useState();
   const { toast } = useToast();
   const [mediaUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
@@ -55,15 +57,16 @@ const ImageModal = () => {
     resolver: zodResolver(FormSchema),
   });
 
-  async function onSubmit({ description }) {
+  async function onSubmit({ title, description }) {
     setLoading(true);
     const formData = {
       mediaUrl,
       description,
-      mediaType: "image",
+      title,
+      eventDate: date,
     };
     try {
-      const resp = await axios.post("/api/imageUpload", formData);
+      const resp = await axios.post("/api/eventUpload", formData);
       setLoading(false);
       if (resp?.data?.message) {
         toast({
@@ -72,7 +75,7 @@ const ImageModal = () => {
         });
       } else {
         toast({
-          title: "Image Upload successfull.",
+          title: "Event Created successfull.",
         });
         window.location = window.location;
         setImageUrl("");
@@ -85,7 +88,6 @@ const ImageModal = () => {
       });
     }
   }
-
   const handleRemoveItem = async (value) => {
     const res = await axios.delete("/api/uploadthing", {
       data: {
@@ -96,6 +98,7 @@ const ImageModal = () => {
       setImageUrl("");
     }
   };
+
   return (
     <>
       <Dialog>
@@ -112,7 +115,7 @@ const ImageModal = () => {
           )}
         >
           <DialogHeader>
-            <DialogTitle>Media Library</DialogTitle>
+            <DialogTitle>Create an Event.</DialogTitle>
           </DialogHeader>
           <DialogDescription>
             <Form {...form}>
@@ -122,23 +125,18 @@ const ImageModal = () => {
               >
                 <FormField
                   control={form.control}
-                  name="media_type"
+                  name="title"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Media Type</FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger className="w-full bg-[--primary-bg] outline-none border-[--primary-text-color] rounded-[5px]">
-                            <SelectValue placeholder="Media type" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="image">Image</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <FormLabel>Event Title</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Event Title"
+                          {...field}
+                          className="w-full p-2 bg-[--primary-bg] outline-none border border-[--primary-text-color] rounded-[5px]  text-[#fff] font-[500]"
+                        />
+                      </FormControl>
+
                       <FormMessage />
                     </FormItem>
                   )}
@@ -148,16 +146,10 @@ const ImageModal = () => {
                   name="description"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>
-                        Description (
-                        <span className="italic text-sm font-[400]">
-                          optional
-                        </span>
-                        )
-                      </FormLabel>
+                      <FormLabel>Event Description</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Description"
+                          placeholder="Event Description"
                           className="resize-none w-full h-20 p-2 bg-[--primary-bg] outline-none border border-[--primary-text-color] rounded-[5px]  text-[#fff] font-[500]"
                           {...field}
                         />
@@ -166,6 +158,29 @@ const ImageModal = () => {
                     </FormItem>
                   )}
                 />
+                <FormLabel>Event Date</FormLabel>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant={"outline"}
+                      className={cn(
+                        "bg-[--primary-bg] outline-none border border-[--primary-text-color] rounded-[5px]  text-[#fff] font-[500] justify-start text-left ",
+                        !date && "text-muted-foreground"
+                      )}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {date ? format(date, "PPP") : <span>Pick a date</span>}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0">
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={setDate}
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
                 <div className="flex flex-col gap-y-1">
                   <FormLabel>File Upload.</FormLabel>
                   <div className="flex items-center gap-3 mt-2">
@@ -220,4 +235,4 @@ const ImageModal = () => {
   );
 };
 
-export default ImageModal;
+export default EventModal;

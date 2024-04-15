@@ -1,7 +1,7 @@
 import { barlow, montserrat, open_sans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-const Card = ({ date, title, description }) => {
+const Card = ({ day, date, title, description }) => {
   return (
     <>
       <div className="py-10 w-full flex gap-4">
@@ -11,7 +11,7 @@ const Card = ({ date, title, description }) => {
               `${montserrat.className} text-[--text-brown] text-[60px] font-[700]`
             )}
           >
-            04
+            {day}
           </h1>
         </div>
         <div>
