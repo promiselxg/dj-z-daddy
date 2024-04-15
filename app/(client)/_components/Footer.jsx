@@ -1,9 +1,10 @@
 import { open_sans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { FiFacebook } from "react-icons/fi";
+import { FiFacebook, FiInstagram } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
 import { SlSocialSpotify } from "react-icons/sl";
+import { PiTiktokLogoLight } from "react-icons/pi";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -31,10 +32,47 @@ const Footer = () => {
                 love to educate people on music they have never heard.
               </p>
             </div>
-            <div className="flex items-center text-[--primary-text-color] mb-5 gap-2">
-              <FiFacebook className="h-[20px] w-[20px]" />
-              <FaXTwitter className="h-[20px] w-[20px]" />
-              <SlSocialSpotify className="h-[20px] w-[20px]" />
+            <div className="flex items-center text-[--primary-text-color] mb-5 gap-4">
+              <a
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all delay-75 hover:text-[--text-brown] cursor-pointer"
+              >
+                <FiFacebook size={40} />
+              </a>
+              <a
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all delay-75 hover:text-[--text-brown] cursor-pointer"
+              >
+                <FaXTwitter size={40} />
+              </a>
+              <a
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all delay-75 hover:text-[--text-brown] cursor-pointer"
+              >
+                <SlSocialSpotify size={40} />
+              </a>
+              <a
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all delay-75 hover:text-[--text-brown] cursor-pointer"
+              >
+                <FiInstagram size={40} />
+              </a>
+              <a
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all delay-75 hover:text-[--text-brown] cursor-pointer"
+              >
+                <PiTiktokLogoLight size={40} />
+              </a>
             </div>
             <p
               className={cn(

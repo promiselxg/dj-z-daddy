@@ -1,13 +1,13 @@
 import Header from "./_components/Header";
-import { barlow } from "@/lib/fonts";
+import { barlow, syne } from "@/lib/fonts";
 import Link from "next/link";
 import Image from "next/image";
 import { ServicesCard } from "./_components/Card";
 import Music from "./_components/Music";
-import { SlSocialSpotify } from "react-icons/sl";
-import { cn } from "@/lib/utils";
 import Discography from "./_components/Discography";
 import Events from "./_components/Events";
+import { Spotify } from "react-spotify-embed";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
@@ -25,30 +25,38 @@ export default function Home() {
         <div className="w-full md:w-[90%] mx-auto p-10 md:p-20 flex justify-between gap-8 items-center flex-col md:flex-row">
           <div className="w-full md:w-1/2">
             <h1
-              className={`${barlow.className} font-[300] text-[40px] leading-[1.1] text-white`}
+              className={`${syne.className} font-[300] text-[40px] leading-[1.1] text-white`}
             >
               <span className="text-white">ABOUT</span>{" "}
               <span className="text-[#e97688]">DJ ZADDY</span>
             </h1>
-            <h2 className="text_system py-5">
-              Ally is an American rapper, producer and DJ best known for being a
-              member of A Tribe Called Quest.
-            </h2>
-            <p className="text_normal pb-6">
-              He caught the attention of audiences the world over with his
-              perfect performance. American DJ and songwriter Ally`s brilliant
-              performance have amazed millions of people all over the world. But
-              with 3 million record sales and a growing popularity, she stays
-              open to his fans and often organizes public meetings.
+
+            <p
+              className={cn(
+                `${barlow.className} py-3 text-[--primary-text-color] text-justify	text-sm leading-[1.7]`
+              )}
+            >
+              Born and bred in the vibrant streets of Lagos, Nigeria, and now
+              making waves in the energetic nightlife scene of Germany, DJ Zaddy
+              brings an electrifying fusion of cultures to the turntables.From
+              the early days grooving to the timeless rhythms of Michael
+              Jackson&apos;s pop anthems, the rebellious beats of Bob
+              Marley&apos;s reggae, to the revolutionary Afrobeat melodies of
+              Fela Kuti, DJ Zaddy&apos;s musical journey was shaped by legends
+              who transcended borders. Influences like 2Pac and DMX added a raw
+              edge to his musical palette, fueling his passion for Hip-Hop.Known
+              for his versatility and ability to seamlessly blend genres, DJ
+              Zaddy has become a household name in the industry. With seven
+              years of experience igniting dance floors across diverse venues,
+              his expertise lies in Afrobeat, Dancehall, Hip-Hop, and Latin
+              rhythms.Under the moniker DJ Zaddy, this 33-year-old maestro has
+              carved out a niche as an open format DJ, captivating audiences
+              with his infectious energy and eclectic selections. Whether
+              it&apos;s heating up the club with Afrobeat vibes, setting the
+              dance floor ablaze with Dancehall rhythms, or taking listeners on
+              a nostalgic journey through Hip-Hop classics, DJ Zaddy&apos;s
+              performances are always an unforgettable experience.
             </p>
-            <div className="my-5">
-              <Link
-                href="/"
-                className="border border-[--primary-text-color] py-4 px-12 uppercase text-white hover:text-[#e97688] transition-all delay-75 hover:border-[#e97688]"
-              >
-                About me
-              </Link>
-            </div>
           </div>
           <div className="w-full md:w-1/2 h-full flex justify-center">
             <Image src="/image/dj.jpg" width={500} height={400} alt="girl" />
@@ -122,7 +130,7 @@ export default function Home() {
         className="w-full bg-playlist-lady-bg bg-center bg-no-repeat bg-cover md:h-[500px]"
       >
         <div className="w-full mx-auto p-5 md:p-20 flex justify-between gap-8 ">
-          <div className="w-full flex justify-between items-center flex-col md:flex-row">
+          <div className="w-full flex justify-between flex-col md:flex-row">
             <div className="flex  w-full md:w-1/2 gap-6 flex-col">
               <div className="flex w-[80%] md:w-full items-center gap-5">
                 <div className="w-[20%] md:w-[20%] border border-[--primary-text-color]"></div>
@@ -137,12 +145,10 @@ export default function Home() {
               <div className="w-full gap-y-3 flex flex-col mt-5">
                 <Music />
               </div>
-              <div className="flex items-center text-[--primary-text-color] mb-5 gap-2">
-                <h1 className={cn(`${barlow.className} font-[600] `)}>
-                  Spotify Music{" "}
-                </h1>
-                <SlSocialSpotify className="h-[30px] w-[30px]" />
-              </div>
+            </div>
+            <div className="md:w-[40%] md:flex md:justify-center md:text-center mt-5 md:mt-0">
+              {/* <Spotify link="https://open.spotify.com/album/0fUy6IdLHDpGNwavIlhEsl?si=mTiITmlHQpaGkoivGTv8Jw" /> */}
+              <Spotify link="https://open.spotify.com/playlist/03nIsS47JClNdcpyZSG0V5?si=926a0647fc774a41" />
             </div>
           </div>
         </div>
