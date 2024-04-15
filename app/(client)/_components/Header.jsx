@@ -54,7 +54,7 @@ const Header = () => {
               <ul
                 className={`${montserrat.className}  items-center gap-10 uppercase tracking-wide text-white font-[500] hidden md:flex`}
               >
-                <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px] pb-2 active hover:border-b-[--text-hover]">
+                <li className="hover:text-[--text-hover] transition-all delay-75  border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover]">
                   <Link href="#home">Home</Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover]">
@@ -70,10 +70,10 @@ const Header = () => {
                   <Link href="#discography">playlist</Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px] border-b-transparent pb-2 hover:border-b-[--text-hover]">
-                  <Link href="#gallery">gallery</Link>
+                  <Link href="#gallery">DISCOGRAPHY</Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover]">
-                  <Link href="/home">contact</Link>
+                  <Link href="#contact">contact</Link>
                 </li>
               </ul>
               <FiAlignRight
@@ -122,11 +122,11 @@ const Header = () => {
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px] border-b-transparent pb-2 hover:border-b-[--text-hover] my-2 text-[25px]">
                   <Link href="#gallery" onClick={hanldeToggle}>
-                    gallery
+                    DISCOGRAPHY
                   </Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover] my-2 text-[25px]">
-                  <Link href="/home" onClick={hanldeToggle}>
+                  <Link href="#contact" onClick={hanldeToggle}>
                     contact
                   </Link>
                 </li>
