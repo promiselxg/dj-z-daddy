@@ -1,7 +1,4 @@
-import { barlow, montserrat, open_sans } from "@/lib/fonts";
-import Link from "next/link";
-import Image from "next/image";
-import Sidebar from "./_components/Sidebar";
+import { barlow, montserrat } from "@/lib/fonts";
 
 import { DataTable } from "./_components/table/data-table";
 import { columns } from "./_components/table/columns";
@@ -16,7 +13,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { UploadBtn } from "@/lib/cloudinaryUpload";
 
 async function getData() {
   // Fetch data from your API here.
@@ -113,13 +109,6 @@ export default async function Home() {
                       <label htmlFor="description" className="text-[#fff]">
                         &nbsp;
                       </label>
-                      {/* <input
-                        type="file"
-                        name=""
-                        id=""
-                        className="w-full p-2 bg-[--primary-bg] outline-none border border-[--primary-text-color] rounded-[5px]"
-                      /> */}
-                      <UploadBtn />
                     </div>
                   </div>
                   <div className="my-3">
