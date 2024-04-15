@@ -1,4 +1,3 @@
-import { withNextVideo } from "next-video/process";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -11,8 +10,4 @@ const nextConfig = {
   },
 };
 
-const config = withNextVideo(nextConfig, {
-  provider: "vercel-blob",
-});
-
-export default config;
+export default nextConfig;
