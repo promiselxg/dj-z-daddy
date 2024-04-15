@@ -28,12 +28,14 @@ import { barlow } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { UploadButton } from "@/utils/uploadthing";
 import React, { useState } from "react";
-import { FiPlus, FiX } from "react-icons/fi";
+import { FiX } from "react-icons/fi";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
 import Image from "next/image";
+import { ImageUp } from "lucide-react";
+
 const FormSchema = z.object({
   media_type: z.string({
     required_error: "Please select an email to display.",
@@ -72,6 +74,7 @@ const ImageModal = () => {
         toast({
           title: "Image Upload successfull.",
         });
+        window.location = window.location;
         setImageUrl("");
       }
       //console.log(resp.data.message);
@@ -97,8 +100,8 @@ const ImageModal = () => {
     <>
       <Dialog>
         <DialogTrigger>
-          <div className="flex items-center gap-3 bg-[--admin-primary-bg] hover:bg-[#04315f] transition-all delay-75">
-            <FiPlus />
+          <div className="flex items-center gap-3 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br py-2.5 px-5 me-2 mb-2 text-sm font-medium focus:outline-none rounded-lg border border-gray-200 ">
+            <ImageUp />
             <span>Image Upload</span>
           </div>
         </DialogTrigger>

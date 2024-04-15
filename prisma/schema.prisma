@@ -61,4 +61,5 @@ model mediaFile {
   description   String?
   mediaUrl      String
   mediaType     String?
+  publicId      String?
 }

@@ -1,15 +1,12 @@
 import Header from "./_components/Header";
 import { barlow } from "@/lib/fonts";
 import Link from "next/link";
-
 import Image from "next/image";
 import { Card, ServicesCard } from "./_components/Card";
 import Music from "./_components/Music";
-import { FiFacebook } from "react-icons/fi";
-import { FaXTwitter } from "react-icons/fa6";
 import { SlSocialSpotify } from "react-icons/sl";
 import { cn } from "@/lib/utils";
-import Video from "next-video";
+import Discography from "./_components/Discography";
 
 export default function Home() {
   return (
@@ -166,7 +163,7 @@ export default function Home() {
       </section>
       <section
         id="gallery"
-        className="md:h-screen w-full md:w-full  text-white p-10 bg-[--primary-bg]"
+        className="md:h-fit w-full md:w-full  text-white p-10 bg-[--primary-bg]"
       >
         <div className="flex w-[80%] md:w-full items-center gap-5">
           <div className="w-[20%] md:w-[20%] border border-[--primary-text-color]"></div>
@@ -180,14 +177,7 @@ export default function Home() {
         </div>
         <div className="my-10">
           <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
-            <Video
-              src="https://gd802ursuid4dg1c.public.blob.vercel-storage.com/videos/video2-7NbPrmRCW1HHuN9xykAVKFMYUbtwOw.mp4"
-              className="md:h-[500px] "
-            />
-            <Video
-              src="https://gd802ursuid4dg1c.public.blob.vercel-storage.com/videos/video2-7NbPrmRCW1HHuN9xykAVKFMYUbtwOw.mp4"
-              className="md:h-[500px]"
-            />
+            <Discography />
           </div>
         </div>
       </section>

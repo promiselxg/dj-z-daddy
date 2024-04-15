@@ -7,17 +7,11 @@ cloudinary.config({
 });
 
 //  Remove uploaded image function
-const removeUploadedImage = async (imageArray, preset) => {
-  imageArray.map((img) =>
-    cloudinary.api.delete_resources(
-      `${preset}/${img}`,
-      function (error, result) {
-        if (error) {
-          throw new Error(error.response.data);
-        }
-      }
-    )
-  );
+const removeUploadedImage = async (id) => {
+  cloudinary.api.delete_resources([`${id}`], {
+    type: "upload",
+    resource_type: "video",
+  });
 };
 
 //  upload multiple image function
@@ -38,8 +32,4 @@ const cloudinaryImageUploadMethod = async (file, preset) => {
   });
 };
 
-module.exports = {
-  cloudinary,
-  removeUploadedImage,
-  cloudinaryImageUploadMethod,
-};
+export { cloudinary, removeUploadedImage, cloudinaryImageUploadMethod };

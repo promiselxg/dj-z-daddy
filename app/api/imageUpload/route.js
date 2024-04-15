@@ -20,3 +20,24 @@ export const POST = async (req) => {
     );
   }
 };
+
+export const DELETE = async (request) => {
+  const data = await request.json();
+  try {
+    const dataExist = await prisma.mediaFile.findUnique({
+      where: {
+        id: data?.id,
+      },
+    });
+    if (dataExist) {
+      await prisma.mediaFile.delete({
+        where: {
+          id: data?.id,
+        },
+      });
+      return Response.json({ message: "ok" }, { status: 200 });
+    }
+  } catch (err) {
+    return NextResponse.json({ message: "DELETE Error", err }, { status: 500 });
+  }
+};

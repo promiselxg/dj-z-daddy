@@ -1,43 +1,22 @@
-import { barlow, montserrat, open_sans } from "@/lib/fonts";
+"use client";
+import { montserrat } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-
 import { DataTable } from "../_components/table/data-table";
 import { columns } from "../_components/table/columns";
 import Modal from "./_component/modal";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-async function getData() {
-  // Fetch data from your API here.
-  return [
-    {
-      id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
-    },
-    {
-      id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
-    },
-    {
-      id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
-    },
-    {
-      id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
-    },
-    // ...
-  ];
-}
+const Home = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(`/api/media`);
+      setData(response?.data);
+    };
+    fetchData();
+  }, []);
 
-export default async function Home() {
-  const data = await getData();
   return (
     <>
       <div className="w-full flex h-fit flex-col gap-y-5">
@@ -57,4 +36,6 @@ export default async function Home() {
       </div>
     </>
   );
-}
+};
+
+export default Home;

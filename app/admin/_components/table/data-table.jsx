@@ -22,6 +22,7 @@ import { useState } from "react";
 
 export function DataTable({ columns, data }) {
   const [columnFilters, setColumnFilters] = useState();
+
   const table = useReactTable({
     data,
     columns,
@@ -38,10 +39,10 @@ export function DataTable({ columns, data }) {
     <div className="rounded-md border px-5">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter emails..."
-          value={table.getColumn("email")?.getFilterValue() ?? ""}
+          placeholder="Filter by Media Type..."
+          value={table.getColumn("mediaType")?.getFilterValue() ?? ""}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            table.getColumn("mediaType")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
