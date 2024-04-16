@@ -53,7 +53,7 @@ const Footer = () => {
             `${open_sans.className} w-full mx-auto p-10 md:p-20 flex justify-between gap-8 text-white flex-col`
           )}
         >
-          <div className="flex gap-5 flex-col md:flex-row">
+          <div className="flex gap-5 md:flex-row flex-col-reverse">
             <div className="w-full md:w-1/2">
               <p
                 className={cn(
@@ -127,7 +127,7 @@ const Footer = () => {
                     <Button
                       type="submit"
                       disabled={loading}
-                      className="bg-[--admin-primary-bg] hover:bg-[#04315f] w-fit transition-all delay-75"
+                      className="bg-[--admin-primary-bg] hover:bg-[#04315f] w-full md:w-fit transition-all delay-75"
                     >
                       Send Message.
                     </Button>
@@ -135,12 +135,12 @@ const Footer = () => {
                 </form>
               </Form>
             </div>
-            <div className="w-full md:w-1/2 flex text-center items-center md:flex-col gap-5 justify-between flex-row md:gap-0 md:justify-start">
-              <div className="my-5 flex flex-col items-center">
+            <div className="w-full md:w-1/2 flex text-center md:items-center flex-col gap-5 justify-between md:gap-0 md:justify-start ">
+              <div className="my-5 flex flex-col items-start md:items-center">
                 <span>
                   <h1
                     className={cn(
-                      `${syne.className} text-[40px] font-[600] uppercase `
+                      `${syne.className} text-[30px] md:text-[40px] font-[600] uppercase `
                     )}
                   >
                     ADDRESS
@@ -153,11 +153,11 @@ const Footer = () => {
                   <MapPin /> Miami - Florida
                 </span>
               </div>
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-start md:items-center">
                 <span>
                   <h1
                     className={cn(
-                      `${syne.className} text-[40px] font-[600] uppercase `
+                      `${syne.className} text-[30px] md:text-[40px] font-[600] uppercase `
                     )}
                   >
                     CONTACT
