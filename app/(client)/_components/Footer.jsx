@@ -22,7 +22,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { Textarea } from "@/components/ui/textarea";
-
+import axios from "axios";
+import { useToast } from "@/components/ui/use-toast";
 const FormSchema = z.object({
   name: z.string({
     required_error: "Please enter your name.",
@@ -37,13 +38,34 @@ const FormSchema = z.object({
 });
 
 const Footer = () => {
+  const { toast } = useToast();
   const currentYear = new Date().getFullYear();
   const [loading, setLoading] = useState(false);
   const form = useForm({
     resolver: zodResolver(FormSchema),
   });
 
-  async function onSubmit({ title, description }) {}
+  async function onSubmit({ name, email, message }) {
+    const formData = {
+      name,
+      email,
+      message,
+    };
+    try {
+      const response = await axios.post("/api/mail", formData);
+      if (response?.data?.message === "ok") {
+        toast({
+          title: "Message sent successfully.",
+        });
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <>

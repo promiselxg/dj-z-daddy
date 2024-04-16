@@ -4,6 +4,8 @@ import Footer from "./_components/Footer";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "../api/uploadthing/core";
+import { Toaster } from "@/components/ui/toaster";
+
 export const metadata = {
   title: "DJ Z-Daddy",
   description: "DJ Z-Daddy",
@@ -16,6 +18,7 @@ export default function RootLayout({ children }) {
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         {children}
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
