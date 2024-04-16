@@ -47,7 +47,7 @@ const FormSchema = z.object({
   }),
 });
 
-const EventModal = () => {
+const EventModal = (children) => {
   const [date, setDate] = useState();
   const { toast } = useToast();
   const [mediaUrl, setImageUrl] = useState("");
@@ -103,7 +103,7 @@ const EventModal = () => {
     <>
       <Dialog>
         <DialogTrigger>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2" {...children}>
             <ImageUp size={20} />
             <span>Image Upload</span>
           </div>
@@ -211,7 +211,10 @@ const EventModal = () => {
                         }}
                         onUploadError={(error) => {
                           // Do something with the error.
-                          alert(`ERROR! ${error.message}`);
+                          toast({
+                            title: "Event Creation Failed.",
+                            variant: "destructive",
+                          });
                         }}
                       />
                     )}
@@ -223,7 +226,7 @@ const EventModal = () => {
                     disabled={loading}
                     className="bg-[--admin-primary-bg] hover:bg-[#04315f] w-fit transition-all delay-75"
                   >
-                    Create new Media Document.
+                    Create new Event.
                   </Button>
                 </div>
               </form>

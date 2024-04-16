@@ -44,13 +44,13 @@ export const GET = async (request) => {
 export const DELETE = async (request) => {
   const data = await request.json();
   try {
-    const dataExist = await prisma.mediaFile.findUnique({
+    const dataExist = await prisma.event.findUnique({
       where: {
         id: data?.id,
       },
     });
     if (dataExist) {
-      await prisma.mediaFile.delete({
+      await prisma.event.delete({
         where: {
           id: data?.id,
         },

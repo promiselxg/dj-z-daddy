@@ -55,12 +55,12 @@ const ImageModal = () => {
     resolver: zodResolver(FormSchema),
   });
 
-  async function onSubmit({ description }) {
+  async function onSubmit({ media_type, description }) {
     setLoading(true);
     const formData = {
       mediaUrl,
       description,
-      mediaType: "image",
+      mediaType: media_type,
     };
     try {
       const resp = await axios.post("/api/imageUpload", formData);
@@ -136,7 +136,8 @@ const ImageModal = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="image">Image</SelectItem>
+                          <SelectItem value="image">Gallery</SelectItem>
+                          <SelectItem value="banner">Banner</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -195,8 +196,10 @@ const ImageModal = () => {
                           });
                         }}
                         onUploadError={(error) => {
-                          // Do something with the error.
-                          alert(`ERROR! ${error.message}`);
+                          toast({
+                            title: "File Upload Failed",
+                            variant: "destructive",
+                          });
                         }}
                       />
                     )}

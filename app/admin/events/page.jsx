@@ -29,7 +29,7 @@ const Event = () => {
             Manage Events.
           </h1>
           <div className="flex gap-3">
-            <EventModal />
+            <EventModal className="flex items-center gap-2 bg-[--admin-primary-bg] rounded-[8px] p-2 text-white hover:bg-[--header-bg] transition-all delay-75" />
           </div>
         </div>
         <DataTable columns={columns} data={data} />

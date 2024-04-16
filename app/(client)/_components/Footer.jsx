@@ -47,14 +47,14 @@ const Footer = () => {
 
   return (
     <>
-      <div className="w-full h-screen bg-[--secondary-bg]" id="contact">
+      <div className="w-full md:h-screen bg-[--secondary-bg]" id="contact">
         <div
           className={cn(
             `${open_sans.className} w-full mx-auto p-10 md:p-20 flex justify-between gap-8 text-white flex-col`
           )}
         >
-          <div className="flex gap-5">
-            <div className="w-1/2">
+          <div className="flex gap-5 flex-col md:flex-row">
+            <div className="w-full md:w-1/2">
               <p
                 className={cn(
                   `${barlow.className} my-2 text-sm leading-relaxed italic text_normal`
@@ -135,7 +135,7 @@ const Footer = () => {
                 </form>
               </Form>
             </div>
-            <div className="w-1/2 flex text-center items-center flex-col">
+            <div className="w-full md:w-1/2 flex text-center items-center md:flex-col gap-5 justify-between flex-row md:gap-0 md:justify-start">
               <div className="my-5 flex flex-col items-center">
                 <span>
                   <h1

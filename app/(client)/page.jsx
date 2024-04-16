@@ -8,16 +8,12 @@ import Discography from "./_components/Discography";
 import Events from "./_components/Events";
 import { Spotify } from "react-spotify-embed";
 import { cn } from "@/lib/utils";
+import Hero from "./_components/Hero";
 
 export default function Home() {
   return (
     <>
-      <section
-        className="w-full h-screen bg-hero-bg bg-top-right bg-no-repeat bg-cover text-[--primary-text-color]"
-        id="home"
-      >
-        <Header />
-      </section>
+      <Hero />
       <section
         id="about"
         className="md:h-screen bg-[--primary-bg] flex items-center"

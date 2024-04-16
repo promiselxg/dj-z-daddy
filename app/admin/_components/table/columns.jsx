@@ -74,7 +74,7 @@ export const columns = [
     cell: ({ row }) => {
       const { mediaType, mediaUrl } = row.original;
 
-      if (mediaType === "image") {
+      if (mediaType === "image" || mediaType === "banner") {
         return (
           <a href={mediaUrl} target="_blank">
             <Image src={mediaUrl} alt="Image" width={50} height={20} />

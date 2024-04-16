@@ -14,31 +14,20 @@ import { FiTrash2 } from "react-icons/fi";
 import axios from "axios";
 import { cn } from "@/lib/utils";
 import { barlow } from "@/lib/fonts";
+import { format } from "date-fns";
 
-const handleRemove = async (type, id, mediaUrl, pid) => {
-  if (type === "image") {
-    const res = await axios.delete("/api/uploadthing", {
+const handleRemove = async (id, mediaUrl) => {
+  const res = await axios.delete("/api/uploadthing", {
+    data: {
+      url: mediaUrl,
+      id,
+    },
+  });
+  if (res?.data.message === "ok") {
+    await axios.delete("/api/eventUpload", {
       data: {
         url: mediaUrl,
         id,
-      },
-    });
-    if (res?.data.message === "ok") {
-      await axios.delete("/api/imageUpload", {
-        data: {
-          url: mediaUrl,
-          id,
-        },
-      });
-      window.location = window.location;
-    }
-  } else {
-    const res = await axios.delete("/api/media", {
-      data: {
-        url: mediaUrl,
-        id,
-        type,
-        pid,
       },
     });
     window.location = window.location;
@@ -86,13 +75,17 @@ export const columns = [
     header: "Date",
     cell: ({ row }) => {
       const { eventDate } = row.original;
-      return <span className={cn(`${barlow.className}`)}>{eventDate}</span>;
+      return (
+        <span className={cn(`${barlow.className}`)}>
+          {format(eventDate, "dd MMMM, yyyy")}
+        </span>
+      );
     },
   },
   {
     id: "actions",
     cell: ({ row }) => {
-      const { mediaType, id, mediaUrl, publicId } = row.original;
+      const { id, mediaUrl } = row.original;
 
       return (
         <DropdownMenu>
@@ -105,7 +98,7 @@ export const columns = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => handleRemove(mediaType, id, mediaUrl, publicId)}
+              onClick={() => handleRemove(id, mediaUrl)}
               className="text-red-400 flex items-center gap-2 cursor-pointer"
             >
               <FiTrash2 /> Delete Item
