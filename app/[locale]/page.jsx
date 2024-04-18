@@ -63,7 +63,7 @@ export default function Home() {
                 </h1>
               </div>
             </div>
-            <div className="my-5">
+            <div className="my-5 hidden md:flex">
               <Link
                 href="/"
                 className="border border-[--primary-text-color] py-4 px-12 capitalize text-white hover:text-[#e97688] transition-all delay-75 hover:border-[#e97688]"
