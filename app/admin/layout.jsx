@@ -1,5 +1,5 @@
 import { inter } from "@/lib/fonts";
-import "../(client)/globals.css";
+import "../[locale]/globals.css";
 import "./dashboard.css";
 import Sidebar from "./_components/Sidebar";
 import Header from "./_components/Header";

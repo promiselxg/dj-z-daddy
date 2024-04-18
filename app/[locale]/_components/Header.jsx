@@ -138,9 +138,10 @@ const Header = () => {
                     {t("Navigation.contact")}
                   </Link>
                 </li>
-                <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover] my-2 text-[25px]">
+                <div className="flex items-center justify-center flex-col gap-y-2">
+                  <h1>Change Language</h1>
                   <Language />
-                </li>
+                </div>
               </ul>
             </div>
           </>
