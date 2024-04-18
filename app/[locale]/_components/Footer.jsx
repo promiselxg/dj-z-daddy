@@ -24,6 +24,8 @@ import { useForm } from "react-hook-form";
 import { Textarea } from "@/components/ui/textarea";
 import axios from "axios";
 import { useToast } from "@/components/ui/use-toast";
+import { useTranslations } from "next-intl";
+
 const FormSchema = z.object({
   name: z.string({
     required_error: "Please enter your name.",
@@ -38,6 +40,7 @@ const FormSchema = z.object({
 });
 
 const Footer = () => {
+  const t = useTranslations("Footer");
   const { toast } = useToast();
   const currentYear = new Date().getFullYear();
   const [loading, setLoading] = useState(false);
@@ -82,9 +85,7 @@ const Footer = () => {
                   `${barlow.className} my-2 text-sm leading-relaxed italic text_normal`
                 )}
               >
-                Send us information about your event including what type of
-                event and the date and we’ll get back to you with availability
-                and a quote right away.
+                {t("title")}
               </p>
               <Form {...form}>
                 <form
@@ -96,10 +97,10 @@ const Footer = () => {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Full Name</FormLabel>
+                        <FormLabel>{t("Form.name")}</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="Full Name"
+                            placeholder={`${t("Form.name")}`}
                             {...field}
                             className="w-full p-2 bg-[--primary-bg] outline-none border border-[--primary-text-color] rounded-[5px]  text-[#fff] font-[500]"
                           />
@@ -114,10 +115,10 @@ const Footer = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email Address</FormLabel>
+                        <FormLabel>{t("Form.email")}</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="Email Address"
+                            placeholder={`${t("Form.email")}`}
                             {...field}
                             className="w-full p-2 bg-[--primary-bg] outline-none border border-[--primary-text-color] rounded-[5px]  text-[#fff] font-[500]"
                           />
@@ -132,10 +133,10 @@ const Footer = () => {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Message</FormLabel>
+                        <FormLabel>{t("Form.message")}</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="Event Description"
+                            placeholder={`${t("Form.message")}`}
                             className="resize-none w-full h-20 p-2 bg-[--primary-bg] outline-none border border-[--primary-text-color] rounded-[5px]  text-[#fff] font-[500]"
                             {...field}
                           />
@@ -151,7 +152,7 @@ const Footer = () => {
                       disabled={loading}
                       className="bg-[--admin-primary-bg] hover:bg-[#04315f] w-full md:w-fit transition-all delay-75"
                     >
-                      Send Message.
+                      {t("Form.button-text")}
                     </Button>
                   </div>
                 </form>
@@ -165,14 +166,11 @@ const Footer = () => {
                       `${syne.className} text-[30px] md:text-[40px] font-[600] uppercase `
                     )}
                   >
-                    ADDRESS
+                    {t("ContactInfo.address-title")}
                   </h1>
                 </span>
                 <span className="flex items-center gap-2">
-                  <MapPin /> 1080 Brickell Ave
-                </span>
-                <span className="flex items-center gap-2">
-                  <MapPin /> Miami - Florida
+                  <MapPin /> {t("ContactInfo.address")}
                 </span>
               </div>
               <div className="flex flex-col items-start md:items-center">
@@ -182,7 +180,7 @@ const Footer = () => {
                       `${syne.className} text-[30px] md:text-[40px] font-[600] uppercase `
                     )}
                   >
-                    CONTACT
+                    {t("ContactInfo.Contact.title")}
                   </h1>
                 </span>
                 <h1
@@ -190,14 +188,14 @@ const Footer = () => {
                     `${open_sans.className} text-[20px] flex items-center gap-2`
                   )}
                 >
-                  <Mail /> info@email.com
+                  <Mail /> {t("ContactInfo.Contact.mail")}
                 </h1>
                 <h1
                   className={cn(
                     `${syne.className} text-[40px] font-[600] uppercase flex items-center gap-2`
                   )}
                 >
-                  <Phone /> + 014656
+                  <Phone /> + {t("ContactInfo.Contact.phone")}
                 </h1>
               </div>
             </div>
@@ -220,10 +218,7 @@ const Footer = () => {
                   `${open_sans.className} font-[400] text-sm text-[--primary-text-color] leading-[1.7]`
                 )}
               >
-                The best thing about being a DJ is making people happy. There is
-                nothing like seeing people get up from a table to dance or the
-                expression on their face when they hear a song they love. I also
-                love to educate people on music they have never heard.
+                {t("ContactInfo.FooterBottom.description")}
               </p>
             </div>
             <div className="flex items-center text-[--primary-text-color] mb-5 gap-4">
@@ -278,7 +273,8 @@ const Footer = () => {
                 `${open_sans.className} font-[400] text-sm text-[--primary-text-color] leading-[1.7]`
               )}
             >
-              Copyright &copy; {currentYear} Z-addy. All Rights Reserved.
+              Copyright &copy; {currentYear}{" "}
+              {t("ContactInfo.FooterBottom.copyright")}
             </p>
           </div>
         </div>

@@ -49,10 +49,10 @@ const ServicesCard = ({ img, label }) => {
             className="w-full"
           />
         </div>
-        <div className="h-fit md:h-[100px]">
+        <div className="h-fit md:h-[100px] text-balance flex-wrap overflow-hidden">
           <h1
             className={cn(
-              `${barlow.className} font-[300] text-white uppercase leading-[1.4] text-[20px] py-2 tracking-wide`
+              `${barlow.className} font-[300] text-white capitalize leading-[1.4] text-[20px] py-2 tracking-wide text-balance `
             )}
           >
             {label}

@@ -1,4 +1,3 @@
-import Header from "./_components/Header";
 import { barlow, syne } from "@/lib/fonts";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,8 +8,10 @@ import Events from "./_components/Events";
 import { Spotify } from "react-spotify-embed";
 import { cn } from "@/lib/utils";
 import Hero from "./_components/Hero";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
+  const t = useTranslations();
   return (
     <>
       <Hero />
@@ -21,10 +22,14 @@ export default function Home() {
         <div className="w-full md:w-[90%] mx-auto p-10 md:p-20 flex justify-between gap-8 items-center flex-col md:flex-row">
           <div className="w-full md:w-1/2">
             <h1
-              className={`${syne.className} font-[300] text-[40px] leading-[1.1] text-white`}
+              className={`${syne.className} font-[300] text-[30px] md:text-[40px] leading-[1.1] text-white`}
             >
-              <span className="text-white">ABOUT</span>{" "}
-              <span className="text-[#e97688]">DJ ZADDY</span>
+              <span className="text-white uppercase">
+                {t("HomePage.title-about")}
+              </span>{" "}
+              <span className="text-[#e97688]  uppercase">
+                {t("HomePage.title-dj")}
+              </span>
             </h1>
 
             <p
@@ -32,26 +37,7 @@ export default function Home() {
                 `${barlow.className} py-3 text-[--primary-text-color] text-justify	text-sm leading-[1.7]`
               )}
             >
-              Born and bred in the vibrant streets of Lagos, Nigeria, and now
-              making waves in the energetic nightlife scene of Germany, DJ Zaddy
-              brings an electrifying fusion of cultures to the turntables.From
-              the early days grooving to the timeless rhythms of Michael
-              Jackson&apos;s pop anthems, the rebellious beats of Bob
-              Marley&apos;s reggae, to the revolutionary Afrobeat melodies of
-              Fela Kuti, DJ Zaddy&apos;s musical journey was shaped by legends
-              who transcended borders. Influences like 2Pac and DMX added a raw
-              edge to his musical palette, fueling his passion for Hip-Hop.Known
-              for his versatility and ability to seamlessly blend genres, DJ
-              Zaddy has become a household name in the industry. With seven
-              years of experience igniting dance floors across diverse venues,
-              his expertise lies in Afrobeat, Dancehall, Hip-Hop, and Latin
-              rhythms.Under the moniker DJ Zaddy, this 33-year-old maestro has
-              carved out a niche as an open format DJ, captivating audiences
-              with his infectious energy and eclectic selections. Whether
-              it&apos;s heating up the club with Afrobeat vibes, setting the
-              dance floor ablaze with Dancehall rhythms, or taking listeners on
-              a nostalgic journey through Hip-Hop classics, DJ Zaddy&apos;s
-              performances are always an unforgettable experience.
+              {t("HomePage.about-me")}
             </p>
           </div>
           <div className="w-full md:w-1/2 h-full flex justify-center">
@@ -66,19 +52,23 @@ export default function Home() {
               <span className="w-[20%] md:w-1/2 border border-[--primary-text-color] "></span>
               <div className="flex w-full">
                 <h1
-                  className={`${barlow.className} flex gap-2 font-[300] text-[20px] md:text-[40px] leading-[1.1] text-white`}
+                  className={`${barlow.className} flex gap-2 font-[300] text-[20px] md:text-[40px] leading-[1.1] text-white capitalize`}
                 >
-                  <span className="text-white">UPCOMING </span>{" "}
-                  <span className="text-[#e97688]">EVENTS</span>
+                  <span className="text-white">
+                    {t("HomePage.Events.title-one")}{" "}
+                  </span>{" "}
+                  <span className="text-[#e97688]">
+                    {t("HomePage.Events.title-two")}
+                  </span>
                 </h1>
               </div>
             </div>
             <div className="my-5">
               <Link
                 href="/"
-                className="border border-[--primary-text-color] py-4 px-12 uppercase text-white hover:text-[#e97688] transition-all delay-75 hover:border-[#e97688]"
+                className="border border-[--primary-text-color] py-4 px-12 capitalize text-white hover:text-[#e97688] transition-all delay-75 hover:border-[#e97688]"
               >
-                view all events
+                {t("HomePage.Events.button-text")}
               </Link>
             </div>
           </div>
@@ -98,24 +88,37 @@ export default function Home() {
                 <h1
                   className={`${barlow.className} font-[300] text-[30px] md:text-[40px] leading-[1.1] text-white `}
                 >
-                  <span className="text-white uppercase">Where </span>{" "}
-                  <span className="text-[#e97688] uppercase">I play</span>
+                  <span className="text-white uppercase">
+                    {t("HomePage.Services.title")}{" "}
+                  </span>{" "}
+                  <span className="text-[#e97688] uppercase">
+                    {t("HomePage.Services.title-two")}
+                  </span>
                 </h1>
               </div>
             </div>
             <div className="w-full md:w-[60%] my-10">
               <div className="grid md:grid-cols-5 grid-cols-2 gap-5">
-                <ServicesCard img="/image/wedding.jpg" label="wedding" />
-                <ServicesCard img="/image/club.jpg" label="clubs &amp; bars" />
+                <ServicesCard
+                  img="/image/wedding.jpg"
+                  label={t("HomePage.Services.wedding")}
+                />
+                <ServicesCard
+                  img="/image/club.jpg"
+                  label={t("HomePage.Services.clubs-n-bars")}
+                />
                 <ServicesCard
                   img="/image/corporate.jpg"
-                  label="corporate events"
+                  label={t("HomePage.Services.coperate-events")}
                 />
                 <ServicesCard
                   img="/image/playlist.jpg"
-                  label="playlist creation"
+                  label={t("HomePage.Services.playlist-creation")}
                 />
-                <ServicesCard img="/image/lesson.jpg" label="dj lessons" />
+                <ServicesCard
+                  img="/image/lesson.jpg"
+                  label={t("HomePage.Services.dj-lesson")}
+                />
               </div>
             </div>
           </div>
@@ -134,7 +137,9 @@ export default function Home() {
                   <h1
                     className={`${barlow.className} font-[300] text-[30px] md:text-[40px] leading-[1.1] text-white `}
                   >
-                    <span className="text-white uppercase">My Playlist</span>
+                    <span className="text-white uppercase">
+                      {t("HomePage.MyPlaylist.title")}
+                    </span>
                   </h1>
                 </div>
               </div>
@@ -159,7 +164,9 @@ export default function Home() {
             <h1
               className={`${barlow.className} font-[300] text-[30px] md:text-[40px] leading-[1.1] text-white `}
             >
-              <span className="text-white uppercase">Discography</span>
+              <span className="text-white uppercase">
+                {t("HomePage.Discography.title")}
+              </span>
             </h1>
           </div>
         </div>

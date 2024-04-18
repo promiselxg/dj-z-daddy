@@ -1,0 +1,58 @@
+{
+  "HomePage": {
+    "title-about": "About",
+    "title-dj": "dj zaddy",
+    "about-me": "Born and bred in the vibrant streets of Lagos, Nigeria, and now making waves in the energetic nightlife scene of Germany, DJ Zaddy    brings an electrifying fusion of cultures to the turntables.From the early days grooving to the timeless rhythms of Michael Jackson&apos;s pop anthems, the rebellious beats of Bob Marley&apos;s reggae, to the revolutionary Afrobeat melodies of Fela Kuti, DJ Zaddy&apos;s musical journey was shaped by legends who transcended borders. Influences like 2Pac and DMX added a raw edge to his musical palette, fueling his passion for Hip-Hop.Known for his versatility and ability to seamlessly blend genres, DJ Zaddy has become a household name in the industry. With seven years of experience igniting dance floors across diverse venues,his expertise lies in Afrobeat, Dancehall, Hip-Hop, and Latinq rhythms.Under the moniker DJ Zaddy, this 33-year-old maestro has carved out a niche as an open format DJ, captivating audiences with his infectious energy and eclectic selections. Whether it&apos;s heating up the club with Afrobeat vibes, setting the dance floor ablaze with Dancehall rhythms, or taking listeners on a nostalgic journey through Hip-Hop classics, DJ Zaddy&apos;s performances are always an unforgettable experience",
+    "Navigation": {
+      "home": "home",
+      "about-me": "about me",
+      "event": "events",
+      "services": "services",
+      "playlist": "playlist",
+      "discography": "discography",
+      "contact": "contact"
+    },
+    "Events": {
+      "title-one": "upcoming",
+      "title-two": "events",
+      "button-text": "view all events"
+    },
+    "Services": {
+      "title": "where",
+      "title-two": "i play",
+      "wedding": "wedding",
+      "clubs-n-bars": "clubs & bars",
+      "coperate-events": "coperate events",
+      "playlist-creation": "playlist creation",
+      "dj-lesson": "dj lesson"
+    },
+    "MyPlaylist": {
+      "title": "my playlist"
+    },
+    "Discography": {
+      "title": "discography"
+    }
+  },
+  "Footer": {
+    "title": "Send us information about your event including what type of event and the date and we’ll get back to you with availability and a quote right away.",
+    "Form": {
+      "name": "name",
+      "email": "email",
+      "message": "message",
+      "button-text": "send message"
+    },
+    "ContactInfo": {
+      "address-title": "address",
+      "address": "1080 Brickell Ave",
+      "Contact": {
+        "title": "contact",
+        "mail": "info@email.com",
+        "phone": "014656"
+      },
+      "FooterBottom": {
+        "description": "The best thing about being a DJ is making people happy. There is nothing like seeing people get up from a table to dance or the expression on their face when they hear a song they love. I also love to educate people on music they have never heard.",
+        "copyright": "Copyright Z-addy. All Rights Reserved."
+      }
+    }
+  }
+}

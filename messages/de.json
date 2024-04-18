@@ -1,0 +1,58 @@
+{
+  "HomePage": {
+    "title-about": "Um",
+    "title-dj": "dj zaddy",
+    "about-me": "Geboren und aufgewachsen in den pulsierenden Straßen von Lagos, Nigeria, und jetzt in der energiegeladenen Nachtlebenszene Deutschlands für Furore sorgend, bringt DJ Zaddy eine elektrisierende Fusion der Kulturen an die Plattenteller. Von den frühen Tagen, als er zu den zeitlosen Rhythmen von Michael Jacksons Pop-Hymnen groovete, über die rebellischen Beats von Bob Marleys Reggae bis hin zu den revolutionären Afrobeat-Melodien von Fela Kuti – DJ Zaddys musikalische Reise wurde von Legenden geprägt, die Grenzen überschritten. Einflüsse wie 2Pac und DMX fügten seiner musikalischen Palette eine raue Note hinzu und befeuerten seine Leidenschaft für Hip-Hop. DJ Zaddy ist bekannt für seine Vielseitigkeit und seine Fähigkeit, Genres nahtlos zu vermischen, und hat sich in der Branche zu einem bekannten Namen entwickelt. Mit sieben Jahren Erfahrung darin, Tanzflächen an den verschiedensten Veranstaltungsorten zum Beben zu bringen, liegt sein Fachwissen in den Bereichen Afrobeat, Dancehall, Hip-Hop und lateinamerikanische Rhythmen. Unter dem Pseudonym DJ Zaddy hat sich dieser 33-jährige Maestro eine Nische als Open-Format-DJ geschaffen und fesselt das Publikum mit seiner ansteckenden Energie und vielseitigen Auswahl. Ob er den Club mit Afrobeat-Vibes aufheizt, die Tanzfläche mit Dancehall-Rhythmen zum Beben bringt oder die Zuhörer auf eine nostalgische Reise durch Hip-Hop-Klassiker mitnimmt, die Auftritte von DJ Zaddy sind immer ein unvergessliches Erlebnis.",
+    "Navigation": {
+      "home": "heim",
+      "about-me": "über mich",
+      "event": "Veranstaltungen",
+      "services": "Dienstleistungen",
+      "playlist": "Wiedergabeliste",
+      "discography": "Diskographie",
+      "contact": "Kontakt"
+    },
+    "Events": {
+      "title-one": "bevorstehende",
+      "title-two": "Veranstaltungen",
+      "button-text": "Alle Veranstaltungen ansehen"
+    },
+    "Services": {
+      "title": "Wo",
+      "title-two": "Ich spiele",
+      "wedding": "Hochzeit",
+      "clubs-n-bars": "Vereine & Riegel",
+      "coperate-events": "Firmenveranstaltungen",
+      "playlist-creation": "Erstellung einer Playlist",
+      "dj-lesson": "Meine Playlist"
+    },
+    "MyPlaylist": {
+      "title": "Meine Playlist"
+    },
+    "Discography": {
+      "title": "Diskographie"
+    }
+  },
+  "Footer": {
+    "title": "Senden Sie uns Informationen zu Ihrer Veranstaltung, einschließlich der Art der Veranstaltung und des Datums, und wir werden uns umgehend mit der Verfügbarkeit und einem Angebot bei Ihnen melden.",
+    "Form": {
+      "name": "Name",
+      "email": "Email Adresse",
+      "message": "Nachricht",
+      "button-text": "Nachricht senden"
+    },
+    "ContactInfo": {
+      "address-title": "Adresse",
+      "address": "1080 Brickell Ave",
+      "Contact": {
+        "title": "Kontakt",
+        "mail": "info@email.com",
+        "phone": "014656"
+      },
+      "FooterBottom": {
+        "description": "Das Beste daran, DJ zu sein, ist, Menschen glücklich zu machen. Es gibt nichts Schöneres, als zu sehen, wie Menschen von einem Tisch aufstehen, um zu tanzen, oder den Gesichtsausdruck zu sehen, wenn sie ein Lied hören, das sie lieben. Ich liebe es auch, Menschen über Musik aufzuklären, die sie noch nie gehört haben.",
+        "copyright": "Z-addy. Alle Rechte vorbehalten"
+      }
+    }
+  }
+}

@@ -5,8 +5,12 @@ import { montserrat, syne } from "@/lib/fonts";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { FiAlignRight, FiX } from "react-icons/fi";
+import { useTranslations } from "next-intl";
+
+import Language from "./Language";
 
 const Header = () => {
+  const t = useTranslations("HomePage");
   const [isFixed, setIsFixed] = useState(false);
   const [toggle, setToggle] = useState(false);
   useEffect(() => {
@@ -53,28 +57,31 @@ const Header = () => {
             </div>
             <div className="flex">
               <ul
-                className={`${syne.className}  items-center gap-10 uppercase tracking-wide text-white font-[500] hidden md:flex`}
+                className={`${syne.className}  items-center gap-10 capitalize tracking-wide text-white font-[500] hidden md:flex text-base`}
               >
                 <li className="hover:text-[--text-hover] transition-all delay-75  border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover]">
-                  <Link href="#home">Home</Link>
+                  <Link href="#home">{t("Navigation.home")}</Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover]">
-                  <Link href="#about">About Me</Link>
+                  <Link href="#about">{t("Navigation.about-me")}</Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px] border-b-transparent pb-2 hover:border-b-[--text-hover]">
-                  <Link href="#events">events</Link>
+                  <Link href="#events">{t("Navigation.event")}</Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover]">
-                  <Link href="#services">services</Link>
+                  <Link href="#services">{t("Navigation.services")}</Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px] border-b-transparent pb-2 hover:border-b-[--text-hover]">
-                  <Link href="#discography">playlist</Link>
+                  <Link href="#discography">{t("Navigation.playlist")}</Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px] border-b-transparent pb-2 hover:border-b-[--text-hover]">
-                  <Link href="#gallery">DISCOGRAPHY</Link>
+                  <Link href="#gallery">{t("Navigation.discography")}</Link>
                 </li>
-                <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover]">
-                  <Link href="#contact">contact</Link>
+                <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover] ">
+                  <Link href="#contact">{t("Navigation.contact")}</Link>
+                </li>
+                <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover] ">
+                  <Language />
                 </li>
               </ul>
               <FiAlignRight
@@ -98,38 +105,41 @@ const Header = () => {
               >
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px] border-b-transparent pb-2  hover:border-b-[--text-hover] my-2 text-[25px]">
                   <Link href="#home" onClick={handleToggle}>
-                    Home
+                    {t("Navigation.home")}
                   </Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover] my-2 text-[25px]">
                   <Link href="#about" onClick={handleToggle}>
-                    About Me
+                    {t("Navigation.about-me")}
                   </Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px] border-b-transparent pb-2 hover:border-b-[--text-hover] my-2 text-[25px]">
                   <Link href="#events" onClick={handleToggle}>
-                    events
+                    {t("Navigation.event")}
                   </Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover] my-2 text-[25px]">
                   <Link href="#services" onClick={handleToggle}>
-                    services
+                    {t("Navigation.services")}
                   </Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px] border-b-transparent pb-2 hover:border-b-[--text-hover] my-2 text-[25px]">
                   <Link href="#discography" onClick={handleToggle}>
-                    playlist
+                    {t("Navigation.playlist")}
                   </Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px] border-b-transparent pb-2 hover:border-b-[--text-hover] my-2 text-[25px]">
                   <Link href="#gallery" onClick={handleToggle}>
-                    DISCOGRAPHY
+                    {t("Navigation.discography")}
                   </Link>
                 </li>
                 <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover] my-2 text-[25px]">
                   <Link href="#contact" onClick={handleToggle}>
-                    contact
+                    {t("Navigation.contact")}
                   </Link>
+                </li>
+                <li className="hover:text-[--text-hover] transition-all delay-75 border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover] my-2 text-[25px]">
+                  <Language />
                 </li>
               </ul>
             </div>
