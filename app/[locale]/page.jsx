@@ -9,6 +9,7 @@ import { Spotify } from "react-spotify-embed";
 import { cn } from "@/lib/utils";
 import Hero from "./_components/Hero";
 import { useTranslations } from "next-intl";
+import Gallery from "./_components/Gallery";
 
 export default function Home() {
   const t = useTranslations();
@@ -171,6 +172,7 @@ export default function Home() {
           </div>
         </div>
         <div className="my-10">
+          <Gallery />
           <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
             <Discography />
           </div>

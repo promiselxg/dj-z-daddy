@@ -304,7 +304,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="fixed md:bottom-10 md:right-5 bottom-0 right-0">
-          <div className="w-[70%] p-5 bg-transparent overflow-hidden">
+          <div className="w-[70%] md:w-full p-5 bg-transparent overflow-hidden">
             <div id="translate"></div>
           </div>
         </div>
