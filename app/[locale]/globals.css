@@ -111,9 +111,12 @@ audio::-webkit-media-controls-panel {
   display: none !important;
 }
 .skiptranslate:first-of-type {
-  display: block; /* or any other appropriate display property */
+  display: flex;
+  align-items: center;
 }
-
+.skiptranslate:first-of-type span {
+  display: none;
+}
 .skiptranslate:not(:first-of-type) {
   display: none;
 }
