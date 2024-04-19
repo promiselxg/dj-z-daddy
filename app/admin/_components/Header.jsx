@@ -14,9 +14,7 @@ const Header = () => {
         className="w-[84%] fixed top-0 h-[70px] z-30 p-5 flex items-center justify-between bg-white"
         style={{ boxShadow: "rgba(40, 42, 49, 0.16) 0px 1px 2px 0px" }}
       >
-        <div>
-          <h1>Header</h1>
-        </div>
+        <div></div>
         <div className="pr-10">
           <DropdownMenu>
             <DropdownMenuTrigger>My Account</DropdownMenuTrigger>
