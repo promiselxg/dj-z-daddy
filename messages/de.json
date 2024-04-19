@@ -1,40 +1,40 @@
 {
   "HomePage": {
-    "title-about": "Um",
+    "title-about": "Über",
     "title-dj": "dj zaddy",
-    "about-me": "Geboren und aufgewachsen in den pulsierenden Straßen von Lagos, Nigeria, und jetzt in der energiegeladenen Nachtlebenszene Deutschlands für Furore sorgend, bringt DJ Zaddy eine elektrisierende Fusion der Kulturen an die Plattenteller. Von den frühen Tagen, als er zu den zeitlosen Rhythmen von Michael Jacksons Pop-Hymnen groovete, über die rebellischen Beats von Bob Marleys Reggae bis hin zu den revolutionären Afrobeat-Melodien von Fela Kuti – DJ Zaddys musikalische Reise wurde von Legenden geprägt, die Grenzen überschritten. Einflüsse wie 2Pac und DMX fügten seiner musikalischen Palette eine raue Note hinzu und befeuerten seine Leidenschaft für Hip-Hop. DJ Zaddy ist bekannt für seine Vielseitigkeit und seine Fähigkeit, Genres nahtlos zu vermischen, und hat sich in der Branche zu einem bekannten Namen entwickelt. Mit sieben Jahren Erfahrung darin, Tanzflächen an den verschiedensten Veranstaltungsorten zum Beben zu bringen, liegt sein Fachwissen in den Bereichen Afrobeat, Dancehall, Hip-Hop und lateinamerikanische Rhythmen. Unter dem Pseudonym DJ Zaddy hat sich dieser 33-jährige Maestro eine Nische als Open-Format-DJ geschaffen und fesselt das Publikum mit seiner ansteckenden Energie und vielseitigen Auswahl. Ob er den Club mit Afrobeat-Vibes aufheizt, die Tanzfläche mit Dancehall-Rhythmen zum Beben bringt oder die Zuhörer auf eine nostalgische Reise durch Hip-Hop-Klassiker mitnimmt, die Auftritte von DJ Zaddy sind immer ein unvergessliches Erlebnis.",
+    "about-me": "In den lebendigen Straßen von Lagos, Nigeria, geboren und aufgewachsen, macht DJ Zaddy nun Wellen in der energiegeladenen Nachtszene Deutschlands. Er bringt eine elektrisierende Fusion von Kulturen an die Plattenteller. Von den frühen Tagen des Groovens zu den zeitlosen Rhythmen von Michael Jacksons Pop-Hymnen, den rebellischen Beats von Bob Marleys Reggae, bis hin zu den revolutionären Afrobeat-Melodien von Fela Kuti wurde DJ Zaddys musikalische Reise von Legenden geprägt, die Grenzen überwanden. Einflüsse wie 2Pac und DMX verliehen seiner musikalischen Palette eine rohe Kante und befeuerten seine Leidenschaft für Hip-Hop. Bekannt für seine Vielseitigkeit und die Fähigkeit, Genres nahtlos zu vermischen, ist DJ Zaddy zu einem bekannten Namen in der Branche geworden. Mit sieben Jahren Erfahrung, in denen er Tanzflächen in verschiedenen Locations zum Leben erweckt hat, liegt seine Expertise in Afrobeat, Dancehall, Hip-Hop und lateinamerikanischen Rhythmen. Unter dem Namen DJ Zaddy hat dieser 33-jährige Maestro sich einen Namen als Open-Format-DJ gemacht, der sein Publikum mit seiner ansteckenden Energie und seiner eklektischen Musikauswahl begeistert. Ob er den Club mit Afrobeat-Vibes anheizt, die Tanzfläche mit Dancehall-Rhythmen in Flammen setzt oder die Zuhörer auf eine nostalgische Reise durch Hip-Hop-Klassiker mitnimmt, DJ Zaddys Auftritte sind immer ein unvergessliches Erlebnis.",
     "Navigation": {
-      "home": "heim",
-      "about-me": "über mich",
+      "home": "Zuhause",
+      "about-me": "Über mich",
       "event": "Veranstaltungen",
       "services": "Dienstleistungen",
-      "playlist": "Wiedergabeliste",
-      "discography": "Diskographie",
+      "playlist": "Playlist",
+      "discography": "Diskografie",
       "contact": "Kontakt"
     },
     "Events": {
       "title-one": "bevorstehende",
-      "title-two": "Veranstaltungen",
-      "button-text": "Alle Veranstaltungen ansehen"
+      "title-two": "veranstaltungen",
+      "button-text": "Alle Veranstaltungen anzeigen"
     },
     "Services": {
       "title": "Wo",
       "title-two": "Ich spiele",
       "wedding": "Hochzeit",
-      "clubs-n-bars": "Vereine & Riegel",
+      "clubs-n-bars": "Clubs & Bars",
       "coperate-events": "Firmenveranstaltungen",
-      "playlist-creation": "Erstellung einer Playlist",
-      "dj-lesson": "Meine Playlist"
+      "playlist-creation": "Erstellung von Playlists",
+      "dj-lesson": "DJ Unterricht"
     },
     "MyPlaylist": {
       "title": "Meine Playlist"
     },
     "Discography": {
-      "title": "Diskographie"
+      "title": "Diskografie"
     }
   },
   "Footer": {
-    "title": "Senden Sie uns Informationen zu Ihrer Veranstaltung, einschließlich der Art der Veranstaltung und des Datums, und wir werden uns umgehend mit der Verfügbarkeit und einem Angebot bei Ihnen melden.",
+    "title": "Natürlich! Könnten Sie uns bitte Informationen zu Ihrer Veranstaltung senden, einschließlich Art der Veranstaltung (z. B. Hochzeit, Firmenveranstaltung, Geburtstagsfeier), Datum, Ort und eventuelle spezifische Anforderungen oder Vorlieben? Sobald ich diese Informationen habe, kann ich Ihnen weiterhelfen.",
     "Form": {
       "name": "Name",
       "email": "Email Adresse",
@@ -50,8 +50,8 @@
         "phone": "014656"
       },
       "FooterBottom": {
-        "description": "Das Beste daran, DJ zu sein, ist, Menschen glücklich zu machen. Es gibt nichts Schöneres, als zu sehen, wie Menschen von einem Tisch aufstehen, um zu tanzen, oder den Gesichtsausdruck zu sehen, wenn sie ein Lied hören, das sie lieben. Ich liebe es auch, Menschen über Musik aufzuklären, die sie noch nie gehört haben.",
-        "copyright": "Z-addy. Alle Rechte vorbehalten"
+        "description": "Das Beste am DJ-Sein ist, Menschen glücklich zu machen. Es gibt nichts Vergleichbares dazu, Menschen von ihren Sitzen aufstehen zu sehen, um zu tanzen, oder den Ausdruck in ihren Gesichtern zu sehen, wenn sie einen Song hören, den sie lieben. Außerdem liebe ich es, Menschen über Musik aufzuklären, die sie noch nie gehört haben.",
+        "copyright": "Urheberrecht Z-Addy. Alle Rechte vorbehalten."
       }
     }
   }
