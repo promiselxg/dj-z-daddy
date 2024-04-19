@@ -110,6 +110,7 @@ audio::-webkit-media-controls-panel {
 .rhap_additional-controls {
   display: none !important;
 }
+
 .active {
   border-bottom-color: #c22ef7;
 }

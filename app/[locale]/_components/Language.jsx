@@ -23,6 +23,7 @@ function Language() {
       router.replace(`/${nextLocale}`);
     });
   };
+
   return (
     <>
       <DropdownMenu>

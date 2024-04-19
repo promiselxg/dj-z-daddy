@@ -31,6 +31,7 @@ const Header = () => {
   const handleToggle = () => {
     setToggle(!toggle);
   };
+
   return (
     <>
       <div className="w-full flex relative flex-col bg-[#000]">

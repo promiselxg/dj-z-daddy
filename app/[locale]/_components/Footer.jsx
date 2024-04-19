@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
@@ -69,6 +69,29 @@ const Footer = () => {
       console.log(error);
     }
   }
+
+  useMemo(() => {
+    if (typeof window !== "undefined") {
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src =
+        "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      script.async = true;
+      document.body.appendChild(script);
+
+      window.googleTranslateElementInit = () => {
+        new window.google.translate.TranslateElement(
+          { pageLanguage: "en" },
+          "translate"
+        );
+      };
+
+      return () => {
+        document.body.removeChild(script);
+        delete window.googleTranslateElementInit;
+      };
+    }
+  }, []);
 
   return (
     <>
@@ -276,6 +299,7 @@ const Footer = () => {
               Copyright &copy; {currentYear}{" "}
               {t("ContactInfo.FooterBottom.copyright")}
             </p>
+            <div id="translate"></div>
           </div>
         </div>
       </div>
