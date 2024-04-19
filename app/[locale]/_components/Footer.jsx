@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
@@ -70,212 +70,242 @@ const Footer = () => {
     }
   }
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src =
+        "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      script.async = true;
+      document.body.appendChild(script);
+
+      window.googleTranslateElementInit = () => {
+        new window.google.translate.TranslateElement(
+          { pageLanguage: "en" },
+          "translate"
+        );
+      };
+
+      return () => {
+        document.body.removeChild(script);
+        delete window.googleTranslateElementInit;
+      };
+    }
+  }, []);
+
   return (
     <>
-      <div className="w-full md:h-screen bg-[--secondary-bg]" id="contact">
-        <div
-          className={cn(
-            `${open_sans.className} w-full mx-auto p-10 md:p-20 flex justify-between gap-8 text-white flex-col`
-          )}
-        >
-          <div className="flex gap-5 md:flex-row flex-col-reverse">
-            <div className="w-full md:w-1/2">
-              <p
-                className={cn(
-                  `${barlow.className} my-2 text-sm leading-relaxed italic text_normal`
-                )}
-              >
-                {t("title")}
-              </p>
-              <Form {...form}>
-                <form
-                  onSubmit={form.handleSubmit(onSubmit)}
-                  className="flex gap-y-5 flex-col w-full"
+      <div className="relative">
+        <div className="w-full md:h-screen bg-[--secondary-bg]" id="contact">
+          <div
+            className={cn(
+              `${open_sans.className} w-full mx-auto p-10 md:p-20 flex justify-between gap-8 text-white flex-col`
+            )}
+          >
+            <div className="flex gap-5 md:flex-row flex-col-reverse">
+              <div className="w-full md:w-1/2">
+                <p
+                  className={cn(
+                    `${barlow.className} my-2 text-sm leading-relaxed italic text_normal`
+                  )}
                 >
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("Form.name")}</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder={`${t("Form.name")}`}
-                            {...field}
-                            className="w-full p-2 bg-[--primary-bg] outline-none border border-[--primary-text-color] rounded-[5px]  text-[#fff] font-[500]"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("Form.email")}</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder={`${t("Form.email")}`}
-                            {...field}
-                            className="w-full p-2 bg-[--primary-bg] outline-none border border-[--primary-text-color] rounded-[5px]  text-[#fff] font-[500]"
-                          />
-                        </FormControl>
-
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("Form.message")}</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            placeholder={`${t("Form.message")}`}
-                            className="resize-none w-full h-20 p-2 bg-[--primary-bg] outline-none border border-[--primary-text-color] rounded-[5px]  text-[#fff] font-[500]"
-                            {...field}
-                          />
-                        </FormControl>
-
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <div>
-                    <Button
-                      type="submit"
-                      disabled={loading}
-                      className="bg-[--admin-primary-bg] hover:bg-[#04315f] w-full md:w-fit transition-all delay-75"
-                    >
-                      {t("Form.button-text")}
-                    </Button>
-                  </div>
-                </form>
-              </Form>
-            </div>
-            <div className="w-full md:w-1/2 flex text-center md:items-center flex-col gap-5 justify-between md:gap-0 md:justify-start ">
-              <div className="my-5 flex flex-col items-start md:items-center">
-                <span>
-                  <h1
-                    className={cn(
-                      `${syne.className} text-[30px] md:text-[40px] font-[600] uppercase `
-                    )}
+                  {t("title")}
+                </p>
+                <Form {...form}>
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="flex gap-y-5 flex-col w-full"
                   >
-                    {t("ContactInfo.address-title")}
-                  </h1>
-                </span>
-                <span className="flex items-center gap-2">
-                  <MapPin /> {t("ContactInfo.address")}
-                </span>
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t("Form.name")}</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder={`${t("Form.name")}`}
+                              {...field}
+                              className="w-full p-2 bg-[--primary-bg] outline-none border border-[--primary-text-color] rounded-[5px]  text-[#fff] font-[500]"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t("Form.email")}</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder={`${t("Form.email")}`}
+                              {...field}
+                              className="w-full p-2 bg-[--primary-bg] outline-none border border-[--primary-text-color] rounded-[5px]  text-[#fff] font-[500]"
+                            />
+                          </FormControl>
+
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t("Form.message")}</FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder={`${t("Form.message")}`}
+                              className="resize-none w-full h-20 p-2 bg-[--primary-bg] outline-none border border-[--primary-text-color] rounded-[5px]  text-[#fff] font-[500]"
+                              {...field}
+                            />
+                          </FormControl>
+
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <div>
+                      <Button
+                        type="submit"
+                        disabled={loading}
+                        className="bg-[--admin-primary-bg] hover:bg-[#04315f] w-full md:w-fit transition-all delay-75"
+                      >
+                        {t("Form.button-text")}
+                      </Button>
+                    </div>
+                  </form>
+                </Form>
               </div>
-              <div className="flex flex-col items-start md:items-center">
-                <span>
+              <div className="w-full md:w-1/2 flex text-center md:items-center flex-col gap-5 justify-between md:gap-0 md:justify-start ">
+                <div className="my-5 flex flex-col items-start md:items-center">
+                  <span>
+                    <h1
+                      className={cn(
+                        `${syne.className} text-[30px] md:text-[40px] font-[600] uppercase `
+                      )}
+                    >
+                      {t("ContactInfo.address-title")}
+                    </h1>
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <MapPin /> {t("ContactInfo.address")}
+                  </span>
+                </div>
+                <div className="flex flex-col items-start md:items-center">
+                  <span>
+                    <h1
+                      className={cn(
+                        `${syne.className} text-[30px] md:text-[40px] font-[600] uppercase `
+                      )}
+                    >
+                      {t("ContactInfo.Contact.title")}
+                    </h1>
+                  </span>
                   <h1
                     className={cn(
-                      `${syne.className} text-[30px] md:text-[40px] font-[600] uppercase `
+                      `${open_sans.className} text-[20px] flex items-center gap-2`
                     )}
                   >
-                    {t("ContactInfo.Contact.title")}
+                    <Mail /> {t("ContactInfo.Contact.mail")}
                   </h1>
-                </span>
-                <h1
-                  className={cn(
-                    `${open_sans.className} text-[20px] flex items-center gap-2`
-                  )}
-                >
-                  <Mail /> {t("ContactInfo.Contact.mail")}
-                </h1>
-                <h1
-                  className={cn(
-                    `${syne.className} text-[40px] font-[600] uppercase flex items-center gap-2`
-                  )}
-                >
-                  <Phone /> + {t("ContactInfo.Contact.phone")}
-                </h1>
+                  <h1
+                    className={cn(
+                      `${syne.className} text-[40px] font-[600] uppercase flex items-center gap-2`
+                    )}
+                  >
+                    <Phone /> + {t("ContactInfo.Contact.phone")}
+                  </h1>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="w-full h-fit bg-[#000]">
-        <div className="w-full mx-auto p-10 md:p-20 flex justify-between gap-8 ">
-          <div className="md:w-1/2 mx-auto flex justify-center items-center text-center flex-col">
-            <Image
-              src="/image/logo.jpg"
-              width={300}
-              height={50}
-              alt="logo"
-              className="w-[400px] h-[200px] object-cover"
-            />
-            <div className="my-5">
+        <div className="w-full h-fit bg-[#000]">
+          <div className="w-full mx-auto p-10 md:p-20 flex justify-between gap-8 ">
+            <div className="md:w-1/2 mx-auto flex justify-center items-center text-center flex-col">
+              <Image
+                src="/image/logo.jpg"
+                width={300}
+                height={50}
+                alt="logo"
+                className="w-[400px] h-[200px] object-cover"
+              />
+              <div className="my-5">
+                <p
+                  className={cn(
+                    `${open_sans.className} font-[400] text-sm text-[--primary-text-color] leading-[1.7]`
+                  )}
+                >
+                  {t("ContactInfo.FooterBottom.description")}
+                </p>
+              </div>
+              <div className="flex items-center text-[--primary-text-color] mb-5 gap-4">
+                <a
+                  href="https://www.youtube.com/@Djzaddy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-all delay-75 hover:text-[--text-brown] cursor-pointer"
+                >
+                  <Youtube size={40} />
+                </a>
+                <a
+                  href="https://open.spotify.com/user/jg47bne0dyy3hnj0wb882b3qs?si=TjEelt1VTnGIXCuPqm_qgQ "
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-all delay-75 hover:text-[--text-brown] cursor-pointer"
+                >
+                  <SlSocialSpotify size={40} />
+                </a>
+                <a
+                  href="https://www.instagram.com/deejay_zaddy/?igsh=bG54dnNudWh2ZjIz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-all delay-75 hover:text-[--text-brown] cursor-pointer"
+                >
+                  <FiInstagram size={40} />
+                </a>
+                <a
+                  href="https://www.tiktok.com/@bidexibile?_t=8lYEdBiZYMz&_r=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-all delay-75 hover:text-[--text-brown] cursor-pointer"
+                >
+                  <PiTiktokLogoLight size={40} />
+                </a>
+                <a
+                  href="https://tidal.com/user/146443404"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src="/image/tidal.png"
+                    width={100}
+                    height={20}
+                    alt="tidal"
+                    className="rounded-[10px]"
+                  />
+                </a>
+              </div>
               <p
                 className={cn(
                   `${open_sans.className} font-[400] text-sm text-[--primary-text-color] leading-[1.7]`
                 )}
               >
-                {t("ContactInfo.FooterBottom.description")}
+                Copyright &copy; {currentYear}{" "}
+                {t("ContactInfo.FooterBottom.copyright")}
               </p>
             </div>
-            <div className="flex items-center text-[--primary-text-color] mb-5 gap-4">
-              <a
-                href="https://www.youtube.com/@Djzaddy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all delay-75 hover:text-[--text-brown] cursor-pointer"
-              >
-                <Youtube size={40} />
-              </a>
-              <a
-                href="https://open.spotify.com/user/jg47bne0dyy3hnj0wb882b3qs?si=TjEelt1VTnGIXCuPqm_qgQ "
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all delay-75 hover:text-[--text-brown] cursor-pointer"
-              >
-                <SlSocialSpotify size={40} />
-              </a>
-              <a
-                href="https://www.instagram.com/deejay_zaddy/?igsh=bG54dnNudWh2ZjIz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all delay-75 hover:text-[--text-brown] cursor-pointer"
-              >
-                <FiInstagram size={40} />
-              </a>
-              <a
-                href="https://www.tiktok.com/@bidexibile?_t=8lYEdBiZYMz&_r=1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all delay-75 hover:text-[--text-brown] cursor-pointer"
-              >
-                <PiTiktokLogoLight size={40} />
-              </a>
-              <a
-                href="https://tidal.com/user/146443404"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/image/tidal.png"
-                  width={100}
-                  height={20}
-                  alt="tidal"
-                  className="rounded-[10px]"
-                />
-              </a>
-            </div>
-            <p
-              className={cn(
-                `${open_sans.className} font-[400] text-sm text-[--primary-text-color] leading-[1.7]`
-              )}
-            >
-              Copyright &copy; {currentYear}{" "}
-              {t("ContactInfo.FooterBottom.copyright")}
-            </p>
+          </div>
+        </div>
+        <div className="fixed md:bottom-10 md:right-5 bottom-0 right-0">
+          <div className="w-[70%] md:w-full p-5 bg-transparent overflow-hidden">
+            <div id="translate"></div>
           </div>
         </div>
       </div>

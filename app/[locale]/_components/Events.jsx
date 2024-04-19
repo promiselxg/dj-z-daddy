@@ -7,6 +7,7 @@ import { format } from "date-fns";
 
 const Events = () => {
   const [data, setData] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(`/api/eventUpload?query=3`);

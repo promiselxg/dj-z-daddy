@@ -110,6 +110,23 @@ audio::-webkit-media-controls-panel {
 .rhap_additional-controls {
   display: none !important;
 }
+.skiptranslate:first-of-type {
+  display: flex;
+  align-items: center;
+}
+.skiptranslate:first-of-type span {
+  display: none;
+}
+.skiptranslate:not(:first-of-type) {
+  display: none;
+}
+.goog-te-combo {
+  padding: 5px;
+  background: var(--secondary-bg);
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 .active {
   border-bottom-color: #c22ef7;
 }
