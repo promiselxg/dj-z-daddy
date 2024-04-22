@@ -21,13 +21,12 @@ import { barlow } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { UploadButton } from "@/utils/uploadthing";
 import React, { useState } from "react";
-import { FiX } from "react-icons/fi";
+import { FiPlus, FiX } from "react-icons/fi";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
 import Image from "next/image";
-import { ImageUp } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
@@ -104,8 +103,8 @@ const EventModal = (children) => {
       <Dialog>
         <DialogTrigger>
           <div className="flex items-center gap-2" {...children}>
-            <ImageUp size={20} />
-            <span>Image Upload</span>
+            <FiPlus size={20} />
+            <span>Create an Event.</span>
           </div>
         </DialogTrigger>
 
