@@ -6,9 +6,11 @@ import axios from "axios";
 import EventModal from "../playlist/_component/eventModal";
 import { DataTable } from "./_components/table/data-table";
 import { columns } from "./_components/table/columns";
+import VerifyClientToken from "@/utils/verifyClientToken";
 
 const Event = () => {
   const [data, setData] = useState([]);
+  VerifyClientToken();
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(`/api/eventUpload`);
@@ -20,7 +22,7 @@ const Event = () => {
   return (
     <>
       <div className="w-full flex h-fit flex-col gap-y-5">
-        <div className="w-full flex items-center justify-between">
+        <div className="w-full flex items-center justify-between flex-col md:flex-row gap-y-3 md:gap-y-0">
           <h1
             className={cn(
               `${montserrat.className} font-[600] text-[20px] uppercase`

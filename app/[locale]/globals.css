@@ -130,6 +130,16 @@ audio::-webkit-media-controls-panel {
 .active {
   border-bottom-color: #c22ef7;
 }
+
+.open {
+  width: 80%;
+  transition: all 0.3s ease-out;
+}
+.close {
+  width: 0px;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+}
 html {
   scroll-behavior: smooth !important;
 }
