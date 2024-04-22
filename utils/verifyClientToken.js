@@ -12,13 +12,13 @@ const VerifyClientToken = () => {
     const qValue = urlParams.get("q");
     if (!qValue || qValue == "") {
       router.refresh();
-      router.push("/admin/login");
+      router.push("/login");
     } else {
       const getToken = async () => {
         const res = await verifyToken(qValue);
         if (res.message !== "success") {
           router.refresh();
-          router.push("/admin/login");
+          router.push("/login");
         }
       };
       getToken();
