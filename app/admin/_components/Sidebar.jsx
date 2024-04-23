@@ -13,6 +13,7 @@ import { useContext, useEffect, useState } from "react";
 import { getCookie } from "@/utils/verifyToken";
 import AuthContext from "@/context/authContext";
 import { FiLogOut, FiX } from "react-icons/fi";
+import AuthModal from "../playlist/_component/authModal";
 
 const Sidebar = () => {
   const { openNav, handleSideNavigationBar, handleLogOut } =
@@ -95,14 +96,15 @@ const Sidebar = () => {
               <li>
                 <VideoModal />
               </li>
-              <li>
-                <button
-                  className="flex items-center gap-2 hover:text-[--admin-primary-bg] transition-all delay-75 hover:bg-[--primary-bg] px-5 py-3 w-full hover:border-l-2 hover:border-l-[--admin-primary-bg] border-l-2 border-l-transparent"
-                  onClick={() => handleLogOut()}
-                >
-                  <FiLogOut size={20} />
-                  Log out
-                </button>
+              <li className="flex items-center gap-2 hover:text-[--admin-primary-bg] transition-all delay-75 hover:bg-[--primary-bg] px-5 py-3 w-full hover:border-l-2 hover:border-l-[--admin-primary-bg] border-l-2 border-l-transparent ">
+                <AuthModal />
+              </li>
+              <li
+                className="flex md:hidden items-center gap-2 hover:text-[--admin-primary-bg] transition-all delay-75 hover:bg-[--primary-bg] px-5 py-3 w-full hover:border-l-2 hover:border-l-[--admin-primary-bg] border-l-2 border-l-transparent cursor-pointer"
+                onClick={() => handleLogOut()}
+              >
+                <FiLogOut size={20} />
+                Log out
               </li>
             </ul>
           </div>

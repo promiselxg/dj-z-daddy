@@ -6,7 +6,7 @@ import axios from "axios";
 import EventModal from "../playlist/_component/eventModal";
 import { DataTable } from "./_components/table/data-table";
 import { columns } from "./_components/table/columns";
-import VerifyClientToken from "@/utils/verifyClientToken";
+import { VerifyClientToken } from "@/utils/verifyClientToken";
 
 const Event = () => {
   const [data, setData] = useState([]);
