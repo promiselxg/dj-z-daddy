@@ -1,6 +1,6 @@
 "use client";
 
-import { syne } from "@/lib/fonts";
+import { montserrat, syne } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { MdOutlinePermMedia } from "react-icons/md";
@@ -52,7 +52,7 @@ const Sidebar = () => {
               />
             </span>
           </div>
-          <div className={`${syne.className}`}>
+          <div className={`${montserrat.className}`}>
             <ul className="text-[--primary-text-color] list-disc flex flex-col">
               <li
                 className={cn(
