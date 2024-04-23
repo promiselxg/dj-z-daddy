@@ -1,12 +1,14 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import AuthContext from "@/context/authContext";
+import Image from "next/image";
+import { useToast } from "@/components/ui/use-toast";
 
 const Page = () => {
   const router = useRouter();
-  const { loading, error, dispatch } = useContext(AuthContext);
+  const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -22,48 +24,67 @@ const Page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({ type: "LOGIN_START" });
     try {
+      setLoading(true);
       const { data } = await axios.post("/api/auth/login", formData);
-      if (data.message === "Login Successfull") {
-        dispatch({ type: "LOGIN_SUCCESS", payload: data?.userInfo });
-        router.push(`/admin/playlist?q=${data?.userInfo?.token}`);
-      } else {
-        dispatch({
-          type: "LOGIN_FAILURE",
-          payload: { message: `${data.message}` },
+      if (data?.message !== "Login Successfull") {
+        toast({
+          description: data?.message,
+          variant: "destructive",
         });
+        setLoading(false);
+      } else {
+        router.push(`/admin/playlist?q=${data?.userInfo?.token}`);
       }
-    } catch (err) {
-      dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="username"
-        value={formData.username}
-        onChange={handleChange}
-        className="border border-red-500 p-3"
-      />
-      <input
-        type="password"
-        name="password"
-        value={formData.password}
-        onChange={handleChange}
-        className="border border-red-500 p-3"
-      />
+    <>
+      <div className="w-full">
+        <div className="w-full px-5 md:w-1/2 mx-auto flex justify-center items-center flex-col md:h-screen h-fit">
+          <Image
+            src="/image/logo.jpg"
+            width={200}
+            height={200}
+            alt="logo"
+            className="md:mb-5"
+          />
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col md:w-1/2 w-full gap-y-3 text-white font-[600] uppercase"
+          >
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              className="border-none outline-0 p-3 rounded-md bg-[--primary-bg] text-white font-[600]"
+            />
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              className="border-none outline-0 p-3 rounded-md bg-[--primary-bg] text-white font-[600]"
+            />
 
-      <button
-        disabled={loading}
-        type="submit"
-        className="border bg-green-500 p-3 rounded-md"
-      >
-        Login
-      </button>
-    </form>
+            <button
+              disabled={loading}
+              type="submit"
+              className="border-none outline-none bg-[--admin-primary-bg] p-3 rounded-md uppercase text-white font-[600] hover:opacity-[0.8] transition-all delay-75 hover:text-[#000]  disabled:cursor-not-allowed mt-5"
+            >
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </>
   );
 };
 
