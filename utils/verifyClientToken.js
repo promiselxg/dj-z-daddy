@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { verifyToken } from "./verifyToken";
 
-const VerifyClientToken = () => {
+export const VerifyClientToken = () => {
   const router = useRouter();
   useEffect(() => {
     const queryString = window.location.search;
@@ -26,4 +26,9 @@ const VerifyClientToken = () => {
   }, [router]);
 };
 
-export default VerifyClientToken;
+export const getTokenUrl = () => {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const qValue = urlParams.get("q");
+  return qValue;
+};

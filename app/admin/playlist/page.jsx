@@ -5,7 +5,7 @@ import { DataTable } from "../_components/table/data-table";
 import { columns } from "../_components/table/columns";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import VerifyClientToken from "@/utils/verifyClientToken";
+import { VerifyClientToken } from "@/utils/verifyClientToken";
 
 const Home = () => {
   const [data, setData] = useState([]);

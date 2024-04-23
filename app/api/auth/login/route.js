@@ -2,6 +2,7 @@ import prisma from "@/utils/connect";
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import { generateCookieResponse } from "@/utils/authUtils";
+import { jwtDecode } from "jwt-decode";
 
 export const POST = async (req) => {
   const { username, password } = await req.json();
@@ -44,6 +45,59 @@ export const POST = async (req) => {
         { message: "Incorrect username or password." },
         { status: 400 }
       )
+    );
+  }
+};
+
+export const PUT = async (req) => {
+  const { confirm_password, password, user, password1 } = await req.json();
+  const username = jwtDecode(user)?.username;
+
+  //  check user credentials
+  if (!confirm_password || !password || !user || !password1) {
+    return new NextResponse(
+      JSON.stringify({ message: "Please fill out the form." }, { status: 400 })
+    );
+  }
+  //  confirm if passwords match
+  if (confirm_password !== password1) {
+    return new NextResponse(
+      JSON.stringify({ message: "Password Mismatch." }, { status: 400 })
+    );
+  }
+  //  check if logged in user exist
+  const userExist = await prisma.user.findUnique({
+    where: {
+      username: username,
+    },
+  });
+
+  if (!userExist) {
+    return new NextResponse(
+      JSON.stringify(
+        { message: "Error occured, try again later." },
+        { status: 400 }
+      )
+    );
+  }
+  //  compare user password with db password
+  if (!(await bcrypt.compare(password, userExist?.password))) {
+    return new NextResponse(
+      JSON.stringify({ message: "Password Mismatch." }, { status: 403 })
+    );
+  }
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(confirm_password, salt);
+  //  update DB
+  const updatedRecord = await prisma.user.update({
+    where: { username },
+    data: {
+      password: hashedPassword,
+    },
+  });
+  if (updatedRecord) {
+    return new NextResponse(
+      JSON.stringify({ message: "success" }, { status: 200 })
     );
   }
 };
