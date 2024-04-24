@@ -58,7 +58,7 @@ const Header = () => {
             </div>
             <div className="flex">
               <ul
-                className={`${syne.className}  items-center gap-10 capitalize tracking-wide text-white font-[500] hidden md:flex text-base`}
+                className={`${montserrat.className}  items-center gap-10 capitalize tracking-wide text-white font-[500] hidden md:flex text-base`}
               >
                 <li className="hover:text-[--text-hover] transition-all delay-75  border-b-[1px]  border-b-transparent pb-2 hover:border-b-[--text-hover]">
                   <Link href="#home">{t("Navigation.home")}</Link>
