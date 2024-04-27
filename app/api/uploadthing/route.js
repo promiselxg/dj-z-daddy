@@ -9,9 +9,10 @@ export const { GET, POST } = createRouteHandler({
 
 export async function DELETE(request) {
   const data = await request.json();
-  const newUrl = data.url.substring(data.url.lastIndexOf("/") + 1);
-  const utapi = new UTApi();
-  await utapi.deleteFiles(newUrl);
-
-  return Response.json({ message: "ok" });
+  if (data?.url != null) {
+    const newUrl = data.url.substring(data.url.lastIndexOf("/") + 1);
+    const utapi = new UTApi();
+    await utapi.deleteFiles(newUrl);
+    return Response.json({ message: "ok" });
+  }
 }

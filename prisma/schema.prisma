@@ -35,3 +35,10 @@ model event {
   mediaUrl      String
   title         String
 }
+
+model bio {
+  id            String   @id @default(cuid()) @map("_id")
+  bioInfo       String?
+  bioType       String?
+  mediaUrl      String?
+}

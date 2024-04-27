@@ -70,7 +70,22 @@ const Sidebar = () => {
                   Media Library
                 </Link>
               </li>
-
+              <li
+                className={cn(
+                  `${
+                    currentRoute === `/admin/bio` &&
+                    "border-l-[--admin-primary-bg] border-l-2 bg-[--primary-bg] text-[--admin-primary-bg] "
+                  } hover:text-[--admin-primary-bg] transition-all delay-75 hover:bg-[--primary-bg] px-5 py-3 w-full hover:border-l-2 hover:border-l-[--admin-primary-bg] `
+                )}
+              >
+                <Link
+                  href={`/admin/bio?q=${token}`}
+                  className="flex items-center gap-2"
+                >
+                  <MdOutlinePermMedia size={20} />
+                  Manage Bio
+                </Link>
+              </li>
               <li className="flex items-center gap-2 hover:text-[--admin-primary-bg] transition-all delay-75 hover:bg-[--primary-bg] px-5 py-3 w-full hover:border-l-2 hover:border-l-[--admin-primary-bg] border-l-2 border-l-transparent ">
                 <ImageModal />
               </li>
@@ -99,6 +114,7 @@ const Sidebar = () => {
               <li className="flex items-center gap-2 hover:text-[--admin-primary-bg] transition-all delay-75 hover:bg-[--primary-bg] px-5 py-3 w-full hover:border-l-2 hover:border-l-[--admin-primary-bg] border-l-2 border-l-transparent ">
                 <AuthModal />
               </li>
+
               <li
                 className="flex md:hidden items-center gap-2 hover:text-[--admin-primary-bg] transition-all delay-75 hover:bg-[--primary-bg] px-5 py-3 w-full hover:border-l-2 hover:border-l-[--admin-primary-bg] border-l-2 border-l-transparent cursor-pointer"
                 onClick={() => handleLogOut()}
