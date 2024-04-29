@@ -25,6 +25,8 @@ import { Textarea } from "@/components/ui/textarea";
 import axios from "axios";
 import { useToast } from "@/components/ui/use-toast";
 import { useTranslations } from "next-intl";
+import GoogleTagManager from "@/lib/googleTagManager";
+import GoogleTranslate from "@/lib/googleTranslate";
 
 const FormSchema = z.object({
   name: z.string({
@@ -69,29 +71,6 @@ const Footer = () => {
       console.log(error);
     }
   }
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src =
-        "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-      script.async = true;
-      document.body.appendChild(script);
-
-      window.googleTranslateElementInit = () => {
-        new window.google.translate.TranslateElement(
-          { pageLanguage: "en" },
-          "translate"
-        );
-      };
-
-      return () => {
-        document.body.removeChild(script);
-        delete window.googleTranslateElementInit;
-      };
-    }
-  }, []);
 
   return (
     <>
@@ -194,7 +173,7 @@ const Footer = () => {
                     </h1>
                   </span>
                   <span className="flex items-center gap-2">
-                    <MapPin /> {t("ContactInfo.address")}
+                    <MapPin /> Herseller str 29 wesseling 50389
                   </span>
                 </div>
                 <div className="flex flex-col items-start md:items-center">
@@ -212,14 +191,14 @@ const Footer = () => {
                       `${open_sans.className} text-[20px] flex items-center gap-2`
                     )}
                   >
-                    <Mail /> {t("ContactInfo.Contact.mail")}
+                    <Mail /> Djbizaddy@gmail.com
                   </h1>
                   <h1
                     className={cn(
-                      `${syne.className} text-[40px] font-[600] uppercase flex items-center gap-2`
+                      `${syne.className} text-[20px] font-[600] uppercase flex items-center gap-2`
                     )}
                   >
-                    <Phone /> + {t("ContactInfo.Contact.phone")}
+                    <Phone /> +491785212173
                   </h1>
                 </div>
               </div>
@@ -309,6 +288,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <GoogleTagManager />
+      <GoogleTranslate />
     </>
   );
 };

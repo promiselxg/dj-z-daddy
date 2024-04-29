@@ -1,7 +1,6 @@
 "use client";
 
 import { barlow, syne } from "@/lib/fonts";
-import Link from "next/link";
 import Image from "next/image";
 import { ServicesCard } from "./_components/Card";
 import Music from "./_components/Music";
@@ -72,6 +71,7 @@ export default function Home() {
                 width={500}
                 height={400}
                 alt="girl"
+                className="w-[350px] h-[400px] object-cover"
               />
             )}
           </div>
