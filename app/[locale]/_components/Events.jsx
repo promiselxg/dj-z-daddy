@@ -10,7 +10,7 @@ const Events = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(`/api/eventUpload?query=3`);
+      const response = await axios.get(`/api/eventUpload?query=6`);
       setData(response?.data);
     };
     fetchData();
@@ -25,6 +25,7 @@ const Events = () => {
             date={format(event?.eventDate, "MMMM, yyyy")}
             title={event?.title}
             description={event?.description}
+            mediaUrl={event?.mediaUrl}
             key={event?.id}
           />
         );
