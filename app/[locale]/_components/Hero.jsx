@@ -66,7 +66,7 @@ const Hero = () => {
                 })}
             </Carousel>
           )}
-          {isLoading && (
+          {/* {isLoading && (
             <div className="relative">
               <Image
                 src="/image/guy.jpg"
@@ -104,7 +104,7 @@ const Hero = () => {
                   ></h1>
                 </div>
               </div>
-            ))}
+            ))} */}
         </div>
       </section>
     </>
