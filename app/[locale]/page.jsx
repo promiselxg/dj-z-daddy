@@ -185,7 +185,8 @@ export default function Home() {
               </div>
               <div className="md:w-[40%] md:flex md:justify-center md:text-center mt-5 md:mt-0">
                 {/* <Spotify link="https://open.spotify.com/album/0fUy6IdLHDpGNwavIlhEsl?si=mTiITmlHQpaGkoivGTv8Jw" /> */}
-                <Spotify link="https://open.spotify.com/playlist/03nIsS47JClNdcpyZSG0V5?si=926a0647fc774a41" />
+                {/* <Spotify link="https://open.spotify.com/playlist/03nIsS47JClNdcpyZSG0V5?si=926a0647fc774a41" /> */}
+                <Spotify link="https://open.spotify.com/playlist/0Rqe3ho6Mvgl8Mdf2mWOtg?si=0ce9353db46845ad" />
               </div>
             </div>
           </div>
